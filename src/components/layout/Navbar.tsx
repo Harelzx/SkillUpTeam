@@ -40,8 +40,12 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-16">
         {/* Logo */}
-        <a href="/" className="gradient-text-logo text-xl font-extrabold tracking-tight">
-          SkillUp
+        <a href="/">
+          <img
+            src="/images/logo.png"
+            alt="SkillUp"
+            className="h-8 w-auto brightness-0 invert"
+          />
         </a>
 
         {/* Desktop nav links */}
