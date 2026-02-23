@@ -38,23 +38,23 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-16">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-16">
         {/* Logo */}
         <a href="/">
           <img
             src="/images/logo.png"
             alt="SkillUp"
-            className="h-8 w-auto brightness-0 invert"
+            className="h-10 w-auto brightness-0 invert"
           />
         </a>
 
         {/* Desktop nav links */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-10 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-dark-400 transition-colors hover:text-white"
+              className="text-base font-medium text-dark-300 transition-colors hover:text-white"
             >
               {link.label}
             </a>
