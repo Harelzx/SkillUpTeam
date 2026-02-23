@@ -45,7 +45,7 @@ export default function HowItWorksSection() {
   };
 
   return (
-    <div className="w-full px-6 md:px-16">
+    <div className="w-full px-6 py-16 md:py-0 md:px-16">
       <ScrollReveal>
         <h2 className="text-center text-4xl font-extrabold tracking-tight text-dark-900">
           איך זה עובד?

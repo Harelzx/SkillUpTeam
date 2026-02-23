@@ -18,7 +18,7 @@ const PAIN_ICON_MAP = {
 
 export default function PainPointsSection() {
   return (
-    <div className="w-full px-6 text-center md:px-16">
+    <div className="w-full px-6 py-16 text-center md:py-0 md:px-16">
       <ScrollReveal>
         <h2 className="text-4xl font-extrabold tracking-tight text-dark-900">
           למה SkillUp?

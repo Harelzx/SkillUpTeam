@@ -46,7 +46,11 @@ export default function LandingPage() {
           <StatsSection />
         </FullPageSection>
 
-        <FullPageSection id="download">
+        <FullPageSection
+          id="download"
+          innerClassName="flex h-full w-full flex-col"
+          mobileInnerClassName="flex w-full flex-col"
+        >
           <CTASection />
           <Footer />
         </FullPageSection>

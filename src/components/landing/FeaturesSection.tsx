@@ -33,7 +33,7 @@ const COLOR_MAP = {
 
 export default function FeaturesSection() {
   return (
-    <div className="relative w-full px-6 md:px-16">
+    <div className="relative w-full px-6 py-16 md:py-0 md:px-16">
       {/* Radial gradient overlay */}
       <div
         className="pointer-events-none absolute inset-0"

@@ -33,17 +33,24 @@
 }
 
 /* ===== BASE ===== */
-html,
-body {
-  overflow: hidden;
-  height: 100vh;
-  height: 100dvh;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-rubik), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fullpage scroll: lock viewport on desktop */
+@media (min-width: 768px) {
+  html,
+  body {
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh;
+  }
 }
 
 ::selection {

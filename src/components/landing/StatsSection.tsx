@@ -6,7 +6,7 @@ import { STATS } from "@/lib/constants";
 
 export default function StatsSection() {
   return (
-    <div className="w-full px-6 text-center md:px-16">
+    <div className="w-full px-6 py-16 text-center md:py-0 md:px-16">
       <ScrollReveal>
         <h2 className="mb-12 text-3xl font-extrabold tracking-tight text-white">
           המספרים מדברים

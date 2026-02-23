@@ -1,22 +1,55 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MenuIcon, CloseIcon } from "@/components/icons/CustomIcons";
 import { NAV_LINKS } from "@/lib/constants";
 import Button from "@/components/ui/Button";
 import { useFullPageOptional } from "@/components/fullpage/FullPageScroll";
 
+const SECTION_IDS = NAV_LINKS.filter((l) => l.href.startsWith("#")).map(
+  (l) => l.href.slice(1)
+);
+
 export default function Navbar() {
   const fullPage = useFullPageOptional();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileScrolled, setMobileScrolled] = useState(false);
+  const [mobileActiveSection, setMobileActiveSection] = useState("");
 
-  // Fullpage mode: derive active state from context
-  // Fallback mode (other pages): no active section tracking
-  const scrolled = fullPage ? fullPage.currentIndex > 0 : false;
-  const activeSection = fullPage
-    ? fullPage.sectionIds[fullPage.currentIndex] ?? ""
-    : "";
+  const isMobile = fullPage?.isMobile ?? false;
+
+  // Desktop: derive from fullpage context
+  // Mobile: derive from scroll position
+  const scrolled = isMobile ? mobileScrolled : (fullPage ? fullPage.currentIndex > 0 : false);
+  const activeSection = isMobile
+    ? mobileActiveSection
+    : (fullPage ? fullPage.sectionIds[fullPage.currentIndex] ?? "" : "");
+
+  // Mobile scroll tracking
+  const updateMobileActiveSection = useCallback(() => {
+    const offset = 100;
+    let current = "";
+    for (const id of SECTION_IDS) {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= offset) {
+        current = id;
+      }
+    }
+    setMobileActiveSection(current);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    function handleScroll() {
+      setMobileScrolled(window.scrollY > 60);
+      updateMobileActiveSection();
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobile, updateMobileActiveSection]);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -36,7 +69,6 @@ export default function Navbar() {
       fullPage.scrollToId(id);
       setMobileOpen(false);
     } else {
-      // Normal link behavior for non-fullpage pages
       setMobileOpen(false);
     }
   }

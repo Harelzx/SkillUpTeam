@@ -55,7 +55,7 @@ export default function HeroSection() {
       <Particles />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-10 px-6 pt-20 md:flex-row md:gap-20 md:px-16">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-6 px-6 pt-20 pb-8 md:flex-row md:gap-20 md:px-16 md:pb-0">
         {/* Text side */}
         <div className="flex max-w-lg flex-col items-center text-center md:items-start md:text-right">
           {/* Badge */}
@@ -64,7 +64,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-500/20 bg-brand-500/10 px-4 py-1.5 text-xs font-semibold text-brand-400">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand-500/20 bg-brand-500/10 px-4 py-1.5 text-xs font-semibold text-brand-400">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
               הפלטפורמה #1 בישראל
             </span>
@@ -72,7 +72,7 @@ export default function HeroSection() {
 
           {/* Title */}
           <motion.h1
-            className="mt-6 text-5xl font-black leading-tight tracking-tight md:text-6xl"
+            className="mt-4 text-4xl font-black leading-tight tracking-tight md:mt-6 md:text-6xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -80,7 +80,7 @@ export default function HeroSection() {
             <span className="text-white">הדרך החכמה</span>
           </motion.h1>
           <motion.h1
-            className="text-5xl font-black leading-tight tracking-tight md:text-6xl"
+            className="text-4xl font-black leading-tight tracking-tight md:text-6xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
@@ -90,7 +90,7 @@ export default function HeroSection() {
 
           {/* Subtitle */}
           <motion.p
-            className="mt-6 mb-9 text-lg leading-relaxed text-dark-400"
+            className="mt-4 mb-6 text-base leading-relaxed text-dark-400 md:mt-6 md:mb-9 md:text-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
@@ -108,15 +108,15 @@ export default function HeroSection() {
             <Button variant="primary" arrow>
               מצאו מורה עכשיו
             </Button>
-            <div className="mt-6">
+            <div className="mt-4 md:mt-6">
               <StoreButtons />
             </div>
           </motion.div>
         </div>
 
-        {/* Phone side */}
+        {/* Phone side — hidden on very small screens to save space */}
         <motion.div
-          className="relative"
+          className="relative hidden sm:block"
           initial={{ opacity: 0, rotateY: -12, x: -60 }}
           animate={{ opacity: 1, rotateY: 0, x: 0 }}
           transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
