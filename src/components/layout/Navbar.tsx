@@ -38,13 +38,13 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-16">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-16">
         {/* Logo */}
-        <a href="/">
+        <a href="/" className="flex items-center shrink-0">
           <img
             src="/images/logo.png"
             alt="SkillUp"
-            className="h-10 w-auto brightness-0 invert"
+            className="h-10 w-auto brightness-0 invert drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
           />
         </a>
 
