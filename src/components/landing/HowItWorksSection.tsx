@@ -11,13 +11,25 @@ const INTERVAL_MS = 3500;
 export default function HowItWorksSection() {
   const [currentStep, setCurrentStep] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const pausedRef = useRef(false);
 
   const startInterval = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
+    if (pausedRef.current) return;
     intervalRef.current = setInterval(() => {
       setCurrentStep((prev) => (prev + 1) % STEPS.length);
     }, INTERVAL_MS);
   }, []);
+
+  const pauseInterval = useCallback(() => {
+    pausedRef.current = true;
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  }, []);
+
+  const resumeInterval = useCallback(() => {
+    pausedRef.current = false;
+    startInterval();
+  }, [startInterval]);
 
   useEffect(() => {
     startInterval();
@@ -28,6 +40,7 @@ export default function HowItWorksSection() {
 
   const handleStepClick = (index: number) => {
     setCurrentStep(index);
+    pausedRef.current = false;
     startInterval();
   };
 
@@ -47,9 +60,13 @@ export default function HowItWorksSection() {
         </p>
       </ScrollReveal>
 
-      <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-16 md:flex-row">
+      <div
+        className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-16 md:flex-row"
+        onMouseEnter={pauseInterval}
+        onMouseLeave={resumeInterval}
+      >
         {/* Steps list */}
-        <div className="flex min-w-80 flex-col gap-3">
+        <div className="flex w-full flex-col gap-3 md:min-w-80 md:w-auto">
           {STEPS.map((step, i) => {
             const isActive = currentStep === i;
             return (
@@ -86,7 +103,7 @@ export default function HowItWorksSection() {
                         className="overflow-hidden text-sm leading-relaxed text-dark-500"
                         initial={{ maxHeight: 0, opacity: 0, marginTop: 0 }}
                         animate={{
-                          maxHeight: 80,
+                          maxHeight: 120,
                           opacity: 1,
                           marginTop: 4,
                         }}

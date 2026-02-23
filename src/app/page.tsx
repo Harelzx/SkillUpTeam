@@ -20,13 +20,13 @@ export default function LandingPage() {
         <SectionDivider topColor="#FFFFFF" bottomColor="#F8FAFC" variant="curve" />
 
         <HowItWorksSection />
-        <SectionDivider topColor="#EFF6FF" bottomColor="#030712" variant="tilt" />
+        <SectionDivider topColor="#EFF6FF" bottomColor="#030712" variant="curve" />
 
         <FeaturesSection />
         <SectionDivider topColor="#030712" bottomColor="#1E293B" variant="slant" />
 
         <StatsSection />
-        <SectionDivider topColor="#0F172A" bottomColor="#1E3A8A" variant="wave" />
+        <SectionDivider topColor="#0F172A" bottomColor="#1E3A8A" variant="curve" />
 
         <CTASection />
       </main>

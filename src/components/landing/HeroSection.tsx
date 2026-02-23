@@ -5,33 +5,31 @@ import Button from "@/components/ui/Button";
 import StoreButtons from "@/components/ui/StoreButtons";
 import PhoneMockup from "@/components/phone/PhoneMockup";
 
-const PARTICLE_COUNT = 25;
+const PARTICLES = Array.from({ length: 25 }, (_, i) => ({
+  left: `${((i * 37 + 13) % 100)}%`,
+  size: (i % 3) + 1.5,
+  duration: (i % 8) + 10,
+  delay: (i * 1.7) % 10,
+  opacity: ((i % 4) + 1) * 0.1,
+}));
 
 function Particles() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {Array.from({ length: PARTICLE_COUNT }).map((_, i) => {
-        const left = `${Math.random() * 100}%`;
-        const size = Math.random() * 3 + 1;
-        const duration = Math.random() * 8 + 10;
-        const delay = Math.random() * 10;
-        const opacity = Math.random() * 0.4 + 0.1;
-
-        return (
-          <div
-            key={i}
-            className="absolute rounded-full bg-brand-400"
-            style={{
-              left,
-              bottom: "-10px",
-              width: size,
-              height: size,
-              opacity,
-              animation: `particle-float ${duration}s linear ${delay}s infinite`,
-            }}
-          />
-        );
-      })}
+      {PARTICLES.map((p, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full bg-brand-400"
+          style={{
+            left: p.left,
+            bottom: "-10px",
+            width: p.size,
+            height: p.size,
+            opacity: p.opacity,
+            animation: `particle-float ${p.duration}s linear ${p.delay}s infinite`,
+          }}
+        />
+      ))}
     </div>
   );
 }
@@ -59,7 +57,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center gap-10 px-6 pt-20 md:flex-row md:gap-20 md:px-16">
         {/* Text side */}
-        <div className="flex max-w-lg flex-col items-center text-center md:items-start md:text-start">
+        <div className="flex max-w-lg flex-col items-center text-center md:items-start md:text-right">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

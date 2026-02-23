@@ -32,7 +32,7 @@ export default function Button({
   const variantClasses =
     variant === "primary"
       ? "bg-gradient-to-l from-brand-500 to-brand-600 text-white shadow-lg shadow-brand-500/25"
-      : "bg-white text-brand-500 border border-brand-200 hover:border-brand-300";
+      : "bg-white text-brand-500 border border-brand-200 hover:border-brand-300 hover:bg-brand-50";
 
   const classes = `relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-xl font-semibold cursor-pointer transition-colors ${sizeClasses} ${variantClasses} ${className}`;
 

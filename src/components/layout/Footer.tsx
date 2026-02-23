@@ -9,11 +9,11 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-8 md:px-16">
         <div className="flex flex-col items-center gap-6 text-center">
           {/* Logo */}
-          <a href="/">
+          <a href="/" className="rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
             <img
               src="/images/logo.png"
               alt={SITE_NAME}
-              className="h-8 w-auto brightness-0 invert"
+              className="h-9 w-auto brightness-0 invert"
             />
           </a>
 

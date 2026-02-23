@@ -16,7 +16,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const updateActiveSection = useCallback(() => {
-    const offset = 120;
+    const offset = 100;
     let current = "";
     for (const id of SECTION_IDS) {
       const el = document.getElementById(id);
@@ -57,7 +57,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-16">
         {/* Logo */}
-        <a href="#hero" className="flex items-center shrink-0">
+        <a href="#hero" className="flex items-center shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
           <img
             src="/images/logo.png"
             alt="SkillUp"
@@ -83,7 +83,7 @@ export default function Navbar() {
               >
                 {link.label}
                 {isActive && (
-                  <span className="block mx-auto mt-1 h-0.5 w-4 rounded-full bg-brand-500" />
+                  <span className="block mx-auto mt-1 h-[3px] w-5 rounded-full bg-brand-500" />
                 )}
               </a>
             );
