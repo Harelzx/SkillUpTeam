@@ -10,7 +10,7 @@ import {
 
 export default function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#1E3A8A] via-brand-500 to-indigo-500 py-28 px-6 text-center md:px-16">
+    <section id="download" className="relative overflow-hidden bg-gradient-to-br from-[#1E3A8A] via-brand-500 to-indigo-500 py-28 px-6 text-center md:px-16">
       {/* Radial gradient overlay */}
       <div
         className="pointer-events-none absolute inset-0"

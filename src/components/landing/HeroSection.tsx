@@ -38,7 +38,7 @@ function Particles() {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-dark-950 overflow-hidden">
+    <section id="hero" className="relative min-h-screen bg-dark-950 overflow-hidden">
       {/* Radial gradient overlays */}
       <div
         className="pointer-events-none absolute inset-0"

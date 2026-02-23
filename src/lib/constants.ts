@@ -13,10 +13,11 @@ export const STATS = [
 ] as const;
 
 export const NAV_LINKS = [
+  { href: "#why-skillup", label: "למה SkillUp" },
   { href: "#how-it-works", label: "איך זה עובד" },
   { href: "#features", label: "יתרונות" },
-  { href: "/privacy", label: "פרטיות" },
-  { href: "/terms", label: "תנאי שימוש" },
+  { href: "#stats", label: "מספרים" },
+  { href: "#download", label: "הורדה" },
 ] as const;
 
 export const PAIN_POINTS = [
