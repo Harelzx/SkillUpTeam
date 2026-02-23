@@ -6,7 +6,7 @@ import { STATS } from "@/lib/constants";
 
 export default function StatsSection() {
   return (
-    <section id="stats" className="bg-gradient-to-br from-dark-800 to-dark-900 py-20 px-6 text-center md:px-16">
+    <div className="w-full px-6 text-center md:px-16">
       <ScrollReveal>
         <h2 className="mb-12 text-3xl font-extrabold tracking-tight text-white">
           המספרים מדברים
@@ -34,6 +34,6 @@ export default function StatsSection() {
           </ScrollReveal>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

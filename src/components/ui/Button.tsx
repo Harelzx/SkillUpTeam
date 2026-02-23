@@ -9,7 +9,7 @@ interface ButtonProps {
   size?: "default" | "small";
   arrow?: boolean;
   href?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
   className?: string;
   type?: "button" | "submit";
 }
@@ -67,6 +67,7 @@ export default function Button({
     return (
       <motion.a
         href={href}
+        onClick={onClick}
         className={classes}
         {...motionProps}
       >

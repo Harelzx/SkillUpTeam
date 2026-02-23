@@ -1,40 +1,22 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MenuIcon, CloseIcon } from "@/components/icons/CustomIcons";
 import { NAV_LINKS } from "@/lib/constants";
 import Button from "@/components/ui/Button";
-
-const SECTION_IDS = NAV_LINKS.filter((l) => l.href.startsWith("#")).map(
-  (l) => l.href.slice(1)
-);
+import { useFullPageOptional } from "@/components/fullpage/FullPageScroll";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const fullPage = useFullPageOptional();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const updateActiveSection = useCallback(() => {
-    const offset = 100;
-    let current = "";
-    for (const id of SECTION_IDS) {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= offset) {
-        current = id;
-      }
-    }
-    setActiveSection(current);
-  }, []);
-
-  useEffect(() => {
-    function handleScroll() {
-      setScrolled(window.scrollY > 60);
-      updateActiveSection();
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [updateActiveSection]);
+  // Fullpage mode: derive active state from context
+  // Fallback mode (other pages): no active section tracking
+  const scrolled = fullPage ? fullPage.currentIndex > 0 : false;
+  const activeSection = fullPage
+    ? fullPage.sectionIds[fullPage.currentIndex] ?? ""
+    : "";
 
   useEffect(() => {
     if (mobileOpen) {
@@ -47,6 +29,18 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
+  function handleNavClick(e: React.MouseEvent, href: string) {
+    if (fullPage && href.startsWith("#")) {
+      e.preventDefault();
+      const id = href.slice(1);
+      fullPage.scrollToId(id);
+      setMobileOpen(false);
+    } else {
+      // Normal link behavior for non-fullpage pages
+      setMobileOpen(false);
+    }
+  }
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
@@ -57,7 +51,11 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-16">
         {/* Logo */}
-        <a href="#hero" className="flex items-center shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
+        <a
+          href={fullPage ? "#hero" : "/"}
+          onClick={(e) => handleNavClick(e, "#hero")}
+          className="flex items-center shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+        >
           <img
             src="/images/logo.png"
             alt="SkillUp"
@@ -75,6 +73,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`text-sm font-medium transition-colors ${
                   isActive
                     ? "text-white"
@@ -92,7 +91,13 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button variant="primary" size="small" href="#download" arrow>
+          <Button
+            variant="primary"
+            size="small"
+            href="#download"
+            arrow
+            onClick={(e) => handleNavClick(e, "#download")}
+          >
             הורידו עכשיו
           </Button>
         </div>
@@ -126,7 +131,7 @@ export default function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className={`rounded-lg px-4 py-3 text-base transition-colors ${
                       isActive
                         ? "bg-brand-500/10 text-brand-400 font-semibold"
@@ -144,7 +149,7 @@ export default function Navbar() {
                   href="#download"
                   arrow
                   className="w-full justify-center"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleNavClick(e, "#download")}
                 >
                   הורידו עכשיו
                 </Button>

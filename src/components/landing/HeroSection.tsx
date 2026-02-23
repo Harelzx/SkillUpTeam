@@ -36,7 +36,7 @@ function Particles() {
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative min-h-screen bg-dark-950 overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden">
       {/* Radial gradient overlays */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -55,7 +55,7 @@ export default function HeroSection() {
       <Particles />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center gap-10 px-6 pt-20 md:flex-row md:gap-20 md:px-16">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-10 px-6 pt-20 md:flex-row md:gap-20 md:px-16">
         {/* Text side */}
         <div className="flex max-w-lg flex-col items-center text-center md:items-start md:text-right">
           {/* Badge */}
@@ -136,6 +136,6 @@ export default function HeroSection() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

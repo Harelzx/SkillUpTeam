@@ -45,10 +45,7 @@ export default function HowItWorksSection() {
   };
 
   return (
-    <section
-      id="how-it-works"
-      className="bg-gradient-to-b from-dark-50 to-brand-50 py-24 px-6 md:px-16"
-    >
+    <div className="w-full px-6 md:px-16">
       <ScrollReveal>
         <h2 className="text-center text-4xl font-extrabold tracking-tight text-dark-900">
           איך זה עובד?
@@ -141,6 +138,6 @@ export default function HowItWorksSection() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

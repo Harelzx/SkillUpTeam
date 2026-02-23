@@ -6,31 +6,51 @@ import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import StatsSection from "@/components/landing/StatsSection";
 import CTASection from "@/components/landing/CTASection";
-import SectionDivider from "@/components/ui/SectionDivider";
+import {
+  FullPageProvider,
+  FullPageContainer,
+  FullPageSection,
+} from "@/components/fullpage/FullPageScroll";
+
+const SECTION_IDS = [
+  "hero",
+  "why-skillup",
+  "how-it-works",
+  "features",
+  "stats",
+  "download",
+];
 
 export default function LandingPage() {
   return (
-    <>
+    <FullPageProvider sectionIds={SECTION_IDS}>
       <Navbar />
-      <main>
-        <HeroSection />
-        <SectionDivider topColor="#030712" bottomColor="#FFFFFF" variant="wave" />
+      <FullPageContainer>
+        <FullPageSection id="hero" className="bg-dark-950">
+          <HeroSection />
+        </FullPageSection>
 
-        <PainPointsSection />
-        <SectionDivider topColor="#FFFFFF" bottomColor="#F8FAFC" variant="curve" />
+        <FullPageSection id="why-skillup" className="bg-white">
+          <PainPointsSection />
+        </FullPageSection>
 
-        <HowItWorksSection />
-        <SectionDivider topColor="#EFF6FF" bottomColor="#030712" variant="curve" />
+        <FullPageSection id="how-it-works" className="bg-gradient-to-b from-dark-50 to-brand-50">
+          <HowItWorksSection />
+        </FullPageSection>
 
-        <FeaturesSection />
-        <SectionDivider topColor="#030712" bottomColor="#1E293B" variant="slant" />
+        <FullPageSection id="features" className="bg-dark-950">
+          <FeaturesSection />
+        </FullPageSection>
 
-        <StatsSection />
-        <SectionDivider topColor="#0F172A" bottomColor="#1E3A8A" variant="curve" />
+        <FullPageSection id="stats" className="bg-gradient-to-br from-dark-800 to-dark-900">
+          <StatsSection />
+        </FullPageSection>
 
-        <CTASection />
-      </main>
-      <Footer />
-    </>
+        <FullPageSection id="download">
+          <CTASection />
+          <Footer />
+        </FullPageSection>
+      </FullPageContainer>
+    </FullPageProvider>
   );
 }
