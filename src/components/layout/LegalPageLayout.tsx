@@ -54,7 +54,7 @@ export default function LegalPageLayout({
     <div className="min-h-screen bg-dark-950 text-white">
       <Navbar />
 
-      <div className="mx-auto max-w-5xl px-6 py-24 md:px-16">
+      <div className="mx-auto max-w-5xl px-6 pt-32 pb-24 md:px-16">
         {/* Header */}
         <header className="mb-12">
           <h1 className="text-3xl font-bold text-white">
