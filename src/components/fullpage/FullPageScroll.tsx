@@ -64,7 +64,12 @@ export function FullPageProvider({ children, sectionIds }: FullPageProviderProps
       if (idx !== -1) setCurrentIndex(idx);
     }
 
-    return () => mq.removeEventListener("change", handler);
+    // Add class to html so fullpage CSS only applies on this page
+    document.documentElement.classList.add("fullpage-active");
+    return () => {
+      mq.removeEventListener("change", handler);
+      document.documentElement.classList.remove("fullpage-active");
+    };
   }, [sectionIds]);
 
   const scrollTo = useCallback(
