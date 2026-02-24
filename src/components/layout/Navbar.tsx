@@ -21,7 +21,8 @@ export default function Navbar() {
 
   // Desktop: derive from fullpage context
   // Mobile: derive from scroll position
-  const scrolled = isMobile ? mobileScrolled : (fullPage ? fullPage.currentIndex > 0 : false);
+  // No fullpage (legal pages): always show solid background
+  const scrolled = !fullPage ? true : isMobile ? mobileScrolled : fullPage.currentIndex > 0;
   const activeSection = isMobile
     ? mobileActiveSection
     : (fullPage ? fullPage.sectionIds[fullPage.currentIndex] ?? "" : "");
