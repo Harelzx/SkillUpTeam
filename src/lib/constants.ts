@@ -10,6 +10,7 @@ export const PLAY_STORE_URL = "#"; // TODO: Replace with real Play Store URL
 export const STATS = [
   { value: 9, suffix: "", label: "תחומי לימוד, מבגרות ועד מיומנויות חיים" },
   { value: 3, suffix: "", label: "דרכי לימוד: אונליין, אצל המורה, אצלכם" },
+  { value: 5, suffix: "", label: "טיירים של התקדמות אישית. ללמוד הופך למשחק." },
   { display: "24h", label: "ביטול חינם עד 24 שעות לפני השיעור" },
   { display: "0₪", label: "עמלת תיווך. תמיד. בלי יוצא מהכלל." },
 ] as const;
@@ -67,13 +68,13 @@ export const STEPS = [
   },
 ] as const;
 
-// 6 features that hit the actual differentiators (gamification, modes, chat, etc.)
+// 7 features that hit the actual differentiators (verified against the iOS repo).
 export const FEATURES = [
   {
     icon: "trophy" as const,
-    title: "5 טיירים. שיעור אחד בכל פעם.",
+    title: "5 טיירים של התקדמות אישית",
     description:
-      "מ\"צעד ראשון\" ועד \"מאסטר SkillUp\" (0/3/10/25/50 שיעורים). כל שיעור מקרב אתכם לרמה הבאה. ללמוד הופך למשחק.",
+      "צעד ראשון, במומנטום, עולה שלב, שולט בעניינים, מאסטר SkillUp. סף מעבר 0/3/10/25/50 שיעורים. כל שיעור מקרב לרמה הבאה. ללמוד הופך למשחק.",
     color: "amber" as const,
   },
   {
@@ -92,9 +93,9 @@ export const FEATURES = [
   },
   {
     icon: "message-circle" as const,
-    title: "צ׳אט + שיתוף קבצים",
+    title: "צ׳אט עם תגובה ממסך הנעילה",
     description:
-      "PDF, Word, Excel, PPT עד 5MB, ישירות מול המורה. שולחים שאלה לפני השיעור, מעבירים שיעורי בית אחרי.",
+      "צ׳אט בזמן אמת עם המורה, כולל קבצים (PDF, Word, Excel, PPT עד 5MB). אפשר לענות להודעה ישירות מהבאנר על מסך הנעילה, בלי לפתוח את האפליקציה.",
     color: "rose" as const,
   },
   {
@@ -110,6 +111,13 @@ export const FEATURES = [
     description:
       "תג PRO, גרפי מגמה, יעדים עם חגיגת זהב. ניהול קריירה שלמה, מתוך האפליקציה.",
     color: "cyan" as const,
+  },
+  {
+    icon: "bolt" as const,
+    title: "תזכורת 4 שעות לפני השיעור",
+    description:
+      "פוש + מייל אוטומטי 4 שעות לפני, גם לתלמיד וגם למורה. אף שיעור לא נופל בגלל שכחה.",
+    color: "amber" as const,
   },
 ] as const;
 

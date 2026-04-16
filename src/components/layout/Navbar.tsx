@@ -87,18 +87,27 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-16">
-        {/* Logo */}
-        <a
-          href={fullPage ? "#hero" : "/"}
-          onClick={(e) => handleNavClick(e, "#hero")}
-          className="flex items-center shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
-        >
-          <img
-            src="/images/SkillUp-SignIn-Logo-dark.svg"
-            alt="SkillUp. אפליקציית מורים פרטיים"
-            className="h-10 w-auto drop-shadow-[0_0_10px_rgba(197,217,242,0.3)]"
-          />
-        </a>
+        {/* Logo + beta pill */}
+        <div className="flex items-center gap-2.5">
+          <a
+            href={fullPage ? "#hero" : "/"}
+            onClick={(e) => handleNavClick(e, "#hero")}
+            className="flex items-center shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+          >
+            <img
+              src="/images/SkillUp-SignIn-Logo-dark.svg"
+              alt="SkillUp. אפליקציית מורים פרטיים"
+              className="h-10 w-auto drop-shadow-[0_0_10px_rgba(167,139,250,0.35)]"
+            />
+          </a>
+          <span
+            aria-label="Beta Version"
+            className="hidden items-center rounded-full border border-accent-500/40 bg-accent-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent-400 sm:inline-flex"
+            dir="ltr"
+          >
+            Beta Version
+          </span>
+        </div>
 
         {/* Desktop nav links */}
         <div className="hidden items-center gap-8 md:flex">

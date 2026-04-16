@@ -9,7 +9,7 @@ import {
 
 export default function CTASection() {
   return (
-    <div className="relative flex w-full items-center justify-center overflow-hidden bg-gradient-to-br from-[#1E3A8A] via-brand-500 to-indigo-500 px-6 py-20 text-center md:py-28 md:px-16">
+    <div className="relative flex w-full items-center justify-center overflow-hidden bg-gradient-to-br from-brand-700 via-brand-500 to-accent-500 px-6 py-20 text-center md:py-28 md:px-16">
       {/* Radial gradient overlay */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -40,7 +40,7 @@ export default function CTASection() {
 
         <ScrollReveal delay={0.1}>
           <p className="mt-3 mb-3 text-lg text-white/80 md:text-xl">
-            חינם בתקופת הבטא. ללא עמלות תיווך, לעולם.
+            חינם להתחיל. ללא עמלות תיווך לעולם.
           </p>
         </ScrollReveal>
 

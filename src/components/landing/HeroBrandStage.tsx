@@ -11,7 +11,6 @@ import {
   SubjectMusicIcon,
   SubjectCodeIcon,
   SubjectChefHatIcon,
-  ChevronDownIcon,
 } from "@/components/icons/CustomIcons";
 
 // Stage dimensions match the previous phone area roughly — keeps hero balance.
@@ -136,28 +135,7 @@ export default function HeroBrandStage() {
         </span>
       </motion.div>
 
-      {/* Scroll-down cue at the bottom of the stage */}
-      <motion.button
-        type="button"
-        onClick={() => {
-          const el = document.getElementById("why-skillup");
-          if (el) el.scrollIntoView({ behavior: "smooth" });
-          else window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" });
-        }}
-        className="absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-1 text-white/70 transition-colors hover:text-white"
-        aria-label="גלול למטה"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.6, ease: "easeOut" }}
-      >
-        <span className="text-[11px] font-semibold tracking-wide">גלה את האפליקציה</span>
-        <motion.span
-          animate={{ y: [0, 4, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDownIcon className="h-5 w-5" />
-        </motion.span>
-      </motion.button>
+      {/* (scroll-down cue removed per design feedback) */}
     </motion.div>
   );
 }

@@ -31,38 +31,86 @@ const TEACHER_SCREENS = [
   },
 ] as const;
 
+const FREE_TIER = [
+  "פרופיל ציבורי באפליקציה",
+  "יומן ושיעורים",
+  "צ׳אט עם תלמידים קיימים",
+  "תזכורות אוטומטיות",
+  "0% עמלת תיווך",
+];
+
+const PRO_TIER = [
+  "תלמידים ללא הגבלה",
+  "לידים חמים מתלמידים חדשים",
+  "הודעות מתלמידים חדשים נכנסות אליכם",
+  "עדיפות בתוצאות החיפוש",
+  "תג PRO זהב על הפרופיל",
+  "דשבורד הכנסות מורחב",
+  "0% עמלת תיווך — תמיד",
+];
+
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle cx="8" cy="8" r="7" fill="currentColor" opacity="0.18" />
+      <path
+        d="M5 8.2 L7 10 L11 6"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function ForTutorsSection() {
   return (
     <section
       id="for-tutors"
-      className="relative w-full overflow-hidden bg-dark-900 px-6 py-20 md:py-28 md:px-16"
+      className="relative w-full overflow-hidden bg-gradient-to-br from-brand-700 via-brand-600 to-brand-800 px-6 py-20 md:py-28 md:px-16"
     >
       {/* Decorative SkillUp glyph watermark */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 -left-20 h-[400px] w-[400px] opacity-[0.04]"
+        className="pointer-events-none absolute -top-20 -left-20 h-[420px] w-[420px] opacity-[0.08]"
         style={{
           backgroundImage: "url(/images/SkillUp-Splash-Glyph.svg)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
         }}
       />
+      {/* Soft top highlight */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 30% at 50% 0%, rgba(255,255,255,0.08), transparent 60%)",
+        }}
+      />
 
       <div className="relative z-10 mx-auto max-w-6xl">
         <div className="mx-auto max-w-3xl text-center">
           <ScrollReveal>
-            <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-amber-200/30 bg-amber-500/10 px-3.5 py-1 text-xs font-bold text-amber-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse-dot" />
-              למורים מייסדים
+            <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-accent-300/40 bg-accent-500/15 px-3.5 py-1 text-xs font-bold text-accent-100">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-400 animate-pulse-dot" />
+              מודל מנויים ממוקד צמיחה
             </span>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
             <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
-              אתם מורים? קבלו את כל הכלים. תשמרו את כל ההכנסה.
+              אתם צומחים. אנחנו צומחים יחד איתכם.
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-dark-300 md:text-lg">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-brand-100 md:text-lg">
               SkillUp מחבר אתכם ישירות לתלמידים באזור שלכם. אתם קובעים את המחיר,
               את הזמינות, ואת המקצועות. בלי טלפונים ל-20 הורים, בלי מתווכים, בלי
               ניירת. הרשמה לוקחת 5 דקות.
@@ -83,7 +131,7 @@ export default function ForTutorsSection() {
                 <h3 className="mt-5 text-base font-bold text-white">
                   {screen.title}
                 </h3>
-                <p className="mt-1.5 text-sm text-dark-400">
+                <p className="mt-1.5 text-sm text-brand-200">
                   {screen.caption}
                 </p>
               </div>
@@ -91,15 +139,113 @@ export default function ForTutorsSection() {
           ))}
         </div>
 
-        {/* CTA */}
-        <ScrollReveal delay={0.5}>
+        {/* Tier comparison: Free vs Pro */}
+        <ScrollReveal delay={0.4}>
+          <div className="mt-20 text-center">
+            <h3 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              שתי דרגות. דרך אחת לצמוח.
+            </h3>
+            <p className="mx-auto mt-3 max-w-xl text-sm text-brand-100 md:text-base">
+              התחילו חינם. כשהפעילות שלכם גדלה, Pro פותח לכם את הברז של תלמידים
+              חדשים. כשאתם צומחים, אנחנו צומחים יחד איתכם.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+          {/* Free tier */}
+          <ScrollReveal delay={0.45}>
+            <div className="flex h-full flex-col rounded-3xl border border-white/15 bg-white/5 p-7 backdrop-blur-sm md:p-8">
+              <div className="mb-1 flex items-baseline justify-between">
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">
+                  Free
+                </span>
+                <span className="text-xs font-semibold text-brand-200">
+                  להתחלה
+                </span>
+              </div>
+              <h4 className="mt-2 text-2xl font-extrabold text-white md:text-3xl">
+                חינם · עד 4 תלמידים
+              </h4>
+              <p className="mt-2 text-sm text-brand-100">
+                כל מה שצריך כדי לבדוק שהפלטפורמה עובדת לכם, בלי להוציא שקל.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {FREE_TIER.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-sm text-white/95"
+                  >
+                    <CheckIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-200" />
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#download"
+                className="mt-7 inline-flex w-full items-center justify-center rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-white/15"
+              >
+                התחילו חינם
+              </a>
+            </div>
+          </ScrollReveal>
+
+          {/* Pro tier */}
+          <ScrollReveal delay={0.55}>
+            <div className="relative flex h-full flex-col rounded-3xl border-2 border-accent-300 bg-gradient-to-br from-white to-accent-50 p-7 shadow-2xl md:p-8">
+              {/* Recommended badge */}
+              <span className="absolute -top-3 right-7 rounded-full bg-accent-500 px-3 py-1 text-xs font-extrabold text-white shadow-lg">
+                לצמיחה אמיתית
+              </span>
+
+              <div className="mb-1 flex items-baseline justify-between">
+                <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-600">
+                  <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M8 1l2 5 5 .5-3.7 3.4 1.1 4.9L8 12l-4.4 2.8 1.1-4.9L1 6.5 6 6z" />
+                  </svg>
+                  PRO
+                </span>
+                <span className="text-xs font-semibold text-accent-600">
+                  לצמיחה
+                </span>
+              </div>
+              <h4 className="mt-2 text-2xl font-extrabold text-dark-900 md:text-3xl">
+                Pro · ללא הגבלה
+              </h4>
+              <p className="mt-2 text-sm text-dark-700">
+                כדי להגיע לתלמידים חדשים, לקבל לידים חמים, ולגדל את העסק שלכם
+                באמת. התשלום שלכם זז רק כשהעסק שלכם זז.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {PRO_TIER.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-sm text-dark-800"
+                  >
+                    <CheckIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-500" />
+                    <span className="leading-relaxed font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#download"
+                className="mt-7 inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-l from-accent-600 to-accent-500 px-5 py-3 text-sm font-extrabold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                שדרגו ל-Pro כשתהיו מוכנים
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Bottom CTA */}
+        <ScrollReveal delay={0.7}>
           <div className="mt-14 flex flex-col items-center gap-3">
             <Button variant="primary" href="#download" arrow>
               הצטרפו כמורים
             </Button>
-            <p className="max-w-md text-xs leading-relaxed text-dark-400">
-              חינם בתקופת הבטא. עמלות תיווך? לא ניקח. אף פעם. בעתיד: מסלול PRO
-              אופציונלי לקידום הפרופיל.
+            <p className="max-w-md text-xs leading-relaxed text-brand-100">
+              0% עמלת תיווך, תמיד. אנחנו לא לוקחים חתיכה מהשיעור שלכם.
+              ההכנסה שלכם מ-Pro זזה רק כשאתם מחליטים לצמוח.
             </p>
           </div>
         </ScrollReveal>

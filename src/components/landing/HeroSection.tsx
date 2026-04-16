@@ -45,7 +45,7 @@ export default function HeroSection() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 50% at 70% 40%, rgba(59,130,246,0.08), transparent), radial-gradient(ellipse 60% 60% at 30% 70%, rgba(99,102,241,0.06), transparent)",
+              "radial-gradient(ellipse 80% 50% at 70% 40%, rgba(137,86,232,0.10), transparent), radial-gradient(ellipse 60% 60% at 30% 70%, rgba(255,112,51,0.05), transparent)",
           }}
         />
       </div>
@@ -76,9 +76,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-white">סוף סוף. שיעור פרטי בלי בלגן, </span>
+            <span className="text-white">המורה הפרטי הנכון לכם נמצא כאן. </span>
             <span className="gradient-text">
-              בעברית, בכל הארץ.
+              כל מקצוע, כל גיל, כל מקום בישראל.
             </span>
           </motion.h1>
 
@@ -91,7 +91,7 @@ export default function HeroSection() {
           >
             9 תחומים, 3 דרכי לימוד, אלפי שילובים. אתם בוחרים את המורה, את השעה
             ואת המקום. אנחנו רק דואגים שהכל יעבוד חלק. בלי עמלות תיווך. בלי
-            רדיפה בוואטסאפ. בעברית מלאה.
+            רדיפה בוואטסאפ. בעברית מלאה. ממשיכים לצמוח יחד.
           </motion.p>
 
           {/* CTA */}
@@ -102,10 +102,7 @@ export default function HeroSection() {
           >
             <div className="flex flex-col items-center gap-3 sm:flex-row md:items-start md:justify-start">
               <Button variant="primary" arrow href="#download">
-                הורידו את האפליקציה
-              </Button>
-              <Button variant="secondary" href="#for-tutors">
-                אני מורה, הצטרפו אלינו
+                זמין עכשיו בחנות האפליקציות
               </Button>
             </div>
           </motion.div>

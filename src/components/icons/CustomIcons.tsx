@@ -215,9 +215,9 @@ export function ShieldVerifiedIcon({ className, size = 24 }: IconProps) {
     >
       <defs>
         <linearGradient id="shield-fill" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#60A5FA" />
-          <stop offset="50%" stopColor="#3B82F6" />
-          <stop offset="100%" stopColor="#1D4ED8" />
+          <stop offset="0%" stopColor="#A78BFA" />
+          <stop offset="50%" stopColor="#8956E8" />
+          <stop offset="100%" stopColor="#6A0D91" />
         </linearGradient>
         <linearGradient id="shield-shine" x1="6" y1="4" x2="14" y2="12" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor="white" stopOpacity="0.3" />

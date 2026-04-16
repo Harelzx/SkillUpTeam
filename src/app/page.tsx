@@ -18,7 +18,10 @@ export default function LandingPage() {
     <>
       <Navbar />
       <main>
-        <section id="hero" className="relative min-h-svh w-full bg-dark-950">
+        <section
+          id="hero"
+          className="relative min-h-svh w-full bg-gradient-to-br from-brand-900 via-brand-800 to-brand-950"
+        >
           <HeroSection />
         </section>
 
@@ -46,13 +49,16 @@ export default function LandingPage() {
 
         <ForTutorsSection />
 
-        <section id="features" className="w-full bg-dark-950">
+        <section
+          id="features"
+          className="w-full bg-gradient-to-b from-white to-brand-50"
+        >
           <FeaturesSection />
         </section>
 
         <section
           id="stats"
-          className="w-full bg-gradient-to-br from-dark-800 to-dark-900"
+          className="w-full bg-gradient-to-br from-brand-50 via-white to-accent-50"
         >
           <StatsSection />
         </section>
