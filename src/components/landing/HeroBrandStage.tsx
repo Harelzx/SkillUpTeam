@@ -1,0 +1,163 @@
+"use client";
+
+import { motion } from "motion/react";
+import {
+  SubjectBookIcon,
+  SubjectAtomIcon,
+  SubjectPaletteIcon,
+  SubjectRulerIcon,
+  SubjectGlobeIcon,
+  SubjectLightbulbIcon,
+  SubjectMusicIcon,
+  SubjectCodeIcon,
+  SubjectChefHatIcon,
+  ChevronDownIcon,
+} from "@/components/icons/CustomIcons";
+
+// Stage dimensions match the previous phone area roughly — keeps hero balance.
+const STAGE_W = 460;
+const STAGE_H = 640;
+
+/**
+ * Each floating subject icon orbits at its own radius/duration so they never sync.
+ * Coordinates are relative to the stage center (positive x = right, positive y = down).
+ */
+const ICONS = [
+  { Icon: SubjectBookIcon,       size: 38, x: -130, y: -180, dur: 9.2, delay: 0,   color: "text-amber-200" },
+  { Icon: SubjectAtomIcon,       size: 44, x:  140, y: -160, dur: 11,  delay: 0.4, color: "text-cyan-200" },
+  { Icon: SubjectPaletteIcon,    size: 42, x: -180, y:  -40, dur: 10.4,delay: 0.9, color: "text-pink-200" },
+  { Icon: SubjectRulerIcon,      size: 40, x:  180, y:   20, dur: 12.6,delay: 1.1, color: "text-emerald-200" },
+  { Icon: SubjectGlobeIcon,      size: 42, x: -160, y:  130, dur: 13.4,delay: 0.6, color: "text-sky-200" },
+  { Icon: SubjectLightbulbIcon,  size: 36, x:  150, y:  150, dur: 9.8, delay: 1.5, color: "text-yellow-200" },
+  { Icon: SubjectMusicIcon,      size: 38, x:   60, y: -200, dur: 10.2,delay: 1.8, color: "text-rose-200" },
+  { Icon: SubjectCodeIcon,       size: 40, x:  -70, y:  210, dur: 11.6,delay: 0.2, color: "text-indigo-200" },
+  { Icon: SubjectChefHatIcon,    size: 40, x:   80, y:  220, dur: 12,  delay: 1.3, color: "text-violet-100" },
+] as const;
+
+// Tailwind doesn't include text-amber-200/text-yellow-200/text-sky-200 in our @theme tokens;
+// instead inline a color map → hex, so we don't need to extend globals for these subject tints.
+const COLOR_HEX: Record<string, string> = {
+  "text-amber-200":   "#FDE68A",
+  "text-cyan-200":    "#A5F3FC",
+  "text-pink-200":    "#FBCFE8",
+  "text-emerald-200": "#A7F3D0",
+  "text-sky-200":     "#BAE6FD",
+  "text-yellow-200":  "#FEF08A",
+  "text-rose-200":    "#FECDD3",
+  "text-indigo-200":  "#C7D2FE",
+  "text-violet-100":  "#EDE9FE",
+};
+
+export default function HeroBrandStage() {
+  return (
+    <motion.div
+      className="relative hidden sm:flex items-center justify-center"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      style={{ width: STAGE_W, height: STAGE_H }}
+    >
+      {/* Soft centered spotlight — gives the glyph presence on the dark hero bg
+          without enclosing it in a hard container. Fades into the page background. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{
+          width: STAGE_W * 0.95,
+          height: STAGE_H * 0.85,
+          background:
+            "radial-gradient(ellipse 60% 55% at 50% 45%, rgba(137,86,232,0.18) 0%, rgba(76,29,149,0.08) 45%, transparent 75%)",
+        }}
+      />
+
+      {/* Floating subject icons orbiting around the central glyph */}
+      {ICONS.map(({ Icon, size, x, y, dur, delay, color }, i) => (
+        <motion.div
+          key={i}
+          className="absolute"
+          style={{
+            left: "50%",
+            top: "50%",
+            color: COLOR_HEX[color] ?? "#FFF",
+            filter:
+              "drop-shadow(0 0 18px rgba(137,86,232,0.35)) drop-shadow(0 4px 10px rgba(0,0,0,0.4))",
+          }}
+          initial={{ x: x, y: y, opacity: 0, scale: 0.5 }}
+          animate={{
+            x: [x, x + 14, x - 10, x],
+            y: [y, y - 12, y + 8, y],
+            opacity: 0.95,
+            scale: 1,
+          }}
+          transition={{
+            x: { duration: dur, repeat: Infinity, ease: "easeInOut", delay },
+            y: { duration: dur * 1.15, repeat: Infinity, ease: "easeInOut", delay },
+            opacity: { duration: 0.8, delay: 0.6 + delay * 0.15, ease: "easeOut" },
+            scale: { duration: 0.8, delay: 0.6 + delay * 0.15, ease: "easeOut" },
+          }}
+        >
+          <Icon size={size} className="block" />
+        </motion.div>
+      ))}
+
+      {/* Central glyph — the SkillUp graduation cap */}
+      <motion.div
+        className="relative z-10 flex flex-col items-center"
+        initial={{ y: 8, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className="relative">
+          {/* Glow halo — violet-white spotlight behind the glyph */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -m-16 rounded-full animate-glow-pulse"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(167,139,250,0.35) 0%, rgba(124,58,237,0.15) 40%, transparent 70%)",
+            }}
+          />
+          <img
+            src="/images/SkillUp-Splash-Glyph.svg"
+            alt="SkillUp"
+            width={180}
+            height={154}
+            className="relative drop-shadow-[0_0_30px_rgba(167,139,250,0.5)]"
+          />
+        </div>
+        <span
+          className="mt-4 text-3xl font-black tracking-wide text-white md:text-4xl"
+          style={{
+            textShadow:
+              "0 0 20px rgba(167,139,250,0.5), 0 4px 12px rgba(0,0,0,0.4)",
+          }}
+        >
+          SkillUp
+        </span>
+      </motion.div>
+
+      {/* Scroll-down cue at the bottom of the stage */}
+      <motion.button
+        type="button"
+        onClick={() => {
+          const el = document.getElementById("why-skillup");
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+          else window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" });
+        }}
+        className="absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-1 text-white/70 transition-colors hover:text-white"
+        aria-label="גלול למטה"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 1.6, ease: "easeOut" }}
+      >
+        <span className="text-[11px] font-semibold tracking-wide">גלה את האפליקציה</span>
+        <motion.span
+          animate={{ y: [0, 4, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDownIcon className="h-5 w-5" />
+        </motion.span>
+      </motion.button>
+    </motion.div>
+  );
+}

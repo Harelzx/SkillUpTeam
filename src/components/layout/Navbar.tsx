@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { MenuIcon, CloseIcon } from "@/components/icons/CustomIcons";
 import { NAV_LINKS } from "@/lib/constants";
@@ -13,22 +14,25 @@ const SECTION_IDS = NAV_LINKS.filter((l) => l.href.startsWith("#")).map(
 
 export default function Navbar() {
   const fullPage = useFullPageOptional();
+  const pathname = usePathname();
+  const isHomepage = pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileScrolled, setMobileScrolled] = useState(false);
-  const [mobileActiveSection, setMobileActiveSection] = useState("");
+  const [scrolledPastThreshold, setScrolledPastThreshold] = useState(false);
+  const [scrollActiveSection, setScrollActiveSection] = useState("");
 
   const isMobile = fullPage?.isMobile ?? false;
+  const useScrollMode = !fullPage || isMobile;
 
-  // Desktop: derive from fullpage context
-  // Mobile: derive from scroll position
-  // No fullpage (legal pages): always show solid background
-  const scrolled = !fullPage ? true : isMobile ? mobileScrolled : fullPage.currentIndex > 0;
-  const activeSection = isMobile
-    ? mobileActiveSection
+  // Non-homepage routes (privacy, terms) keep a solid navbar always.
+  const scrolled = useScrollMode
+    ? !isHomepage || scrolledPastThreshold
+    : (fullPage?.currentIndex ?? 0) > 0;
+
+  const activeSection = useScrollMode
+    ? scrollActiveSection
     : (fullPage ? fullPage.sectionIds[fullPage.currentIndex] ?? "" : "");
 
-  // Mobile scroll tracking
-  const updateMobileActiveSection = useCallback(() => {
+  const updateScrollActiveSection = useCallback(() => {
     const offset = 100;
     let current = "";
     for (const id of SECTION_IDS) {
@@ -37,20 +41,21 @@ export default function Navbar() {
         current = id;
       }
     }
-    setMobileActiveSection(current);
+    setScrollActiveSection(current);
   }, []);
 
   useEffect(() => {
-    if (!isMobile) return;
+    if (!useScrollMode) return;
 
     function handleScroll() {
-      setMobileScrolled(window.scrollY > 60);
-      updateMobileActiveSection();
+      setScrolledPastThreshold(window.scrollY > 60);
+      updateScrollActiveSection();
     }
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMobile, updateMobileActiveSection]);
+  }, [useScrollMode, updateScrollActiveSection]);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -64,14 +69,13 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   function handleNavClick(e: React.MouseEvent, href: string) {
-    if (fullPage && href.startsWith("#")) {
+    if (fullPage && !isMobile && href.startsWith("#")) {
       e.preventDefault();
       const id = href.slice(1);
       fullPage.scrollToId(id);
-      setMobileOpen(false);
-    } else {
-      setMobileOpen(false);
     }
+    // Otherwise: native anchor jump (mobile fullpage or no-fullpage page).
+    setMobileOpen(false);
   }
 
   return (
@@ -90,9 +94,9 @@ export default function Navbar() {
           className="flex items-center shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
         >
           <img
-            src="/images/logo.png"
-            alt="SkillUp"
-            className="h-10 w-auto brightness-0 invert drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+            src="/images/SkillUp-SignIn-Logo-dark.svg"
+            alt="SkillUp. אפליקציית מורים פרטיים"
+            className="h-10 w-auto drop-shadow-[0_0_10px_rgba(197,217,242,0.3)]"
           />
         </a>
 

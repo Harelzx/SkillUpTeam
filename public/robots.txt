@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skillupwebsite.vercel.app/sitemap.xml

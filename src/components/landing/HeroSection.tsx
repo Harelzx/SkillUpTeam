@@ -2,8 +2,7 @@
 
 import { motion } from "motion/react";
 import Button from "@/components/ui/Button";
-import StoreButtons from "@/components/ui/StoreButtons";
-import PhoneMockup from "@/components/phone/PhoneMockup";
+import HeroBrandStage from "@/components/landing/HeroBrandStage";
 
 const PARTICLES = Array.from({ length: 25 }, (_, i) => ({
   left: `${((i * 37 + 13) % 100)}%`,
@@ -66,26 +65,21 @@ export default function HeroSection() {
           >
             <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand-500/20 bg-brand-500/10 px-4 py-1.5 text-xs font-semibold text-brand-400">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-500 animate-pulse-dot" />
-              הפלטפורמה #1 בישראל
+              עברית מלאה · כל הארץ · חדש בישראל
             </span>
           </motion.div>
 
           {/* Title */}
           <motion.h1
-            className="mt-4 text-4xl font-black leading-tight tracking-tight md:mt-6 md:text-6xl"
+            className="mt-4 text-3xl font-black leading-tight tracking-tight md:mt-6 md:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-white">הדרך החכמה</span>
-          </motion.h1>
-          <motion.h1
-            className="text-4xl font-black leading-tight tracking-tight md:text-6xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="gradient-text">ללמוד ולהצליח</span>
+            <span className="text-white">סוף סוף. שיעור פרטי בלי בלגן, </span>
+            <span className="gradient-text">
+              בעברית, בכל הארץ.
+            </span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -95,8 +89,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            מצאו את המורה המושלם בקליק - שיעורים פרטיים בכל מקצוע, מכל מקום,
-            בכל זמן.
+            9 תחומים, 3 דרכי לימוד, אלפי שילובים. אתם בוחרים את המורה, את השעה
+            ואת המקום. אנחנו רק דואגים שהכל יעבוד חלק. בלי עמלות תיווך. בלי
+            רדיפה בוואטסאפ. בעברית מלאה.
           </motion.p>
 
           {/* CTA */}
@@ -105,36 +100,19 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Button variant="primary" arrow>
-              מצאו מורה עכשיו
-            </Button>
-            <div className="mt-4 md:mt-6">
-              <StoreButtons />
+            <div className="flex flex-col items-center gap-3 sm:flex-row md:items-start md:justify-start">
+              <Button variant="primary" arrow href="#download">
+                הורידו את האפליקציה
+              </Button>
+              <Button variant="secondary" href="#for-tutors">
+                אני מורה, הצטרפו אלינו
+              </Button>
             </div>
           </motion.div>
         </div>
 
-        {/* Phone side — hidden on very small screens to save space */}
-        <motion.div
-          className="relative hidden sm:block"
-          initial={{ opacity: 0, rotateY: -12, x: -60 }}
-          animate={{ opacity: 1, rotateY: 0, x: 0 }}
-          transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          style={{ perspective: 1200 }}
-        >
-          {/* Glow behind phone */}
-          <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[120%] w-[120%] animate-glow-pulse"
-            style={{
-              transform: "translate(-50%, -50%)",
-              background:
-                "radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)",
-            }}
-          />
-          <div className="animate-phone-float">
-            <PhoneMockup />
-          </div>
-        </motion.div>
+        {/* Brand stage — animated splash recreation, no phones */}
+        <HeroBrandStage />
       </div>
     </div>
   );

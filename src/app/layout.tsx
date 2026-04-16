@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/constants";
+import { JSON_LD_BLOCKS } from "@/lib/structured-data";
 
 const rubik = Rubik({
   variable: "--font-family-rubik",
@@ -10,30 +12,113 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
-  title: "SkillUp - הדרך החכמה ללמוד ולהצליח",
+  metadataBase: new URL(SITE_URL),
+  title:
+    "SkillUp | האפליקציה הישראלית לשיעורים פרטיים. 9 תחומים, כל הארץ, בעברית",
   description:
-    "מצאו את המורה המושלם בקליק - שיעורים פרטיים בכל מקצוע, מכל מקום, בכל זמן. מורים מאומתים, הזמנה מהירה, תשלום מאובטח.",
+    "SkillUp. האפליקציה הישראלית למציאת מורה פרטי ב-9 תחומים: מתמטיקה ומדעים, שפות, בגרויות ופסיכומטרי, ספורט, אומנות, תכנות, ופנאי ומיומנויות חיים (בישול, נהיגה, מוזיקה). שלוש דרכי לימוד: אונליין, אצל המורה, או אצלכם. עברית מלאה, RTL, מורים מאומתים, ללא עמלת תיווך לעולם. חינם בתקופת הבטא.",
   keywords: [
-    "שיעורים פרטיים",
+    // Core
     "מורה פרטי",
+    "שיעורים פרטיים",
+    "מורה פרטי אונליין",
+    "אפליקציית מורים פרטיים",
     "SkillUp",
-    "לימודים",
-    "מורים מאומתים",
-    "הוראה פרטית",
+    // Math & Science
+    "מורה פרטי למתמטיקה",
+    "מורה פרטי לפיזיקה",
+    "מורה פרטי לכימיה",
+    "מורה פרטי לביולוגיה",
+    // Languages & Hebrew
+    "מורה פרטי לאנגלית",
+    "מורה פרטי לצרפתית",
+    "מורה פרטי לספרדית",
+    "מורה פרטי לעברית",
+    "מורה פרטי ללשון",
+    // Exam prep
+    "הכנה לבגרות",
+    "פסיכומטרי",
+    "הכנה לפסיכומטרי",
+    "מורה פרטי ל-SAT",
+    // Tech
+    "מורה פרטי לתכנות",
+    "מורה פרטי ל-Python",
+    "מורה פרטי למדעי המחשב",
+    // Arts & life skills (the differentiator)
+    "שיעורי בישול",
+    "שיעורי נהיגה",
+    "שיעורי גיטרה",
+    "מורה פרטי לפסנתר",
+    "שיעורי פיתוח קול",
+    "שיעורי ציור",
+    "מורה פרטי לכושר",
+    "שיעורי ריקוד",
+    // GEO: cities
+    "מורה פרטי בתל אביב",
+    "מורה פרטי בירושלים",
+    "מורה פרטי בחיפה",
+    "מורה פרטי בבאר שבע",
+    "מורה פרטי ברמת גן",
+    "מורה פרטי בפתח תקווה",
+    "מורה פרטי בנתניה",
+    "מורה פרטי בחולון",
+    "מורה פרטי באשדוד",
+    "מורה פרטי ברעננה",
+    "מורה פרטי אונליין בעברית",
+    // Pricing/value
+    "0% עמלה תמיד",
+    "מורה פרטי ללא עמלות",
+    "חינם בבטא",
+    "אפליקציית שיעורים פרטיים חינם",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
   openGraph: {
-    title: "SkillUp - הדרך החכמה ללמוד ולהצליח",
-    description: "מצאו את המורה המושלם בקליק - שיעורים פרטיים בכל מקצוע",
+    title: "SkillUp. האפליקציה הישראלית לשיעורים פרטיים",
+    description:
+      "9 תחומים, 3 דרכי לימוד, כל הארץ, בעברית. ללא עמלת תיווך. אתם משלמים ישירות למורה.",
+    url: "/",
     type: "website",
     locale: "he_IL",
     siteName: "SkillUp",
+    images: [
+      {
+        url: "/images/og-cover.png",
+        width: 1200,
+        height: 630,
+        alt: "SkillUp. האפליקציה הישראלית לשיעורים פרטיים",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SkillUp - הדרך החכמה ללמוד ולהצליח",
-    description: "מצאו את המורה המושלם בקליק",
+    title: "SkillUp. האפליקציה הישראלית לשיעורים פרטיים",
+    description: "9 תחומים, 3 דרכי לימוד, כל הארץ, בעברית. ללא עמלת תיווך.",
+    images: ["/images/og-cover.png"],
+  },
+  // GEO targeting: Israel nationwide. ICBM is the approximate country centroid.
+  other: {
+    "geo.region": "IL",
+    "geo.placename": "Israel",
+    ICBM: "31.0461,34.8516",
   },
 };
+
+// JSON-LD payloads are built from trusted in-repo constants only (no user input).
+// The </script replacement prevents script-context breakout per OWASP JSON-in-HTML guidance.
+function serializeJsonLd(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
 
 export default function RootLayout({
   children,
@@ -42,6 +127,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl">
+      <head>
+        {JSON_LD_BLOCKS.map((block, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: serializeJsonLd(block) }}
+          />
+        ))}
+      </head>
       <body className={`${rubik.variable} font-[family-name:var(--font-family-rubik)] antialiased`}>
         {children}
       </body>

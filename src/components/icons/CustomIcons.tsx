@@ -381,6 +381,351 @@ export function ChatBubbleIcon({ className, size = 24 }: IconProps) {
   );
 }
 
+/** Trophy with star — gamification tiers */
+export function TrophyIcon({ className, size = 24 }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="trophy-cup" x1="6" y1="2" x2="18" y2="16" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#FCD34D" />
+          <stop offset="60%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#B45309" />
+        </linearGradient>
+        <linearGradient id="trophy-base" x1="7" y1="18" x2="17" y2="23" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#D97706" />
+          <stop offset="100%" stopColor="#92400E" />
+        </linearGradient>
+        <radialGradient id="trophy-shine" cx="10" cy="6" r="6" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="white" stopOpacity="0.5" />
+          <stop offset="100%" stopColor="white" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* Side handles */}
+      <path d="M5 5 C2 5 2 11 6 11" stroke="url(#trophy-cup)" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+      <path d="M19 5 C22 5 22 11 18 11" stroke="url(#trophy-cup)" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+
+      {/* Cup body */}
+      <path
+        d="M6 3 H18 V9 C18 12.31 15.31 15 12 15 C8.69 15 6 12.31 6 9 V3 Z"
+        fill="url(#trophy-cup)"
+      />
+
+      {/* Cup shine */}
+      <path d="M7 4 H10 V9 C10 10 9 11 8 11 C7.5 11 7 10.5 7 10 V4 Z" fill="url(#trophy-shine)" />
+
+      {/* Stem */}
+      <rect x="11" y="15" width="2" height="3" fill="url(#trophy-base)" />
+
+      {/* Base */}
+      <rect x="7" y="18" width="10" height="3" rx="1" fill="url(#trophy-base)" />
+
+      {/* Star on cup */}
+      <path
+        d="M12 6 L12.7 7.6 L14.4 7.8 L13.1 9 L13.4 10.7 L12 9.9 L10.6 10.7 L10.9 9 L9.6 7.8 L11.3 7.6 Z"
+        fill="white"
+        opacity="0.85"
+      />
+    </svg>
+  );
+}
+
+/** Video camera — Zoom / video lessons */
+export function VideoIcon({ className, size = 24 }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="video-body" x1="2" y1="6" x2="18" y2="18" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#A5B4FC" />
+          <stop offset="100%" stopColor="#4F46E5" />
+        </linearGradient>
+        <linearGradient id="video-lens" x1="14" y1="8" x2="22" y2="16" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#818CF8" />
+          <stop offset="100%" stopColor="#3730A3" />
+        </linearGradient>
+        <filter id="video-glow" x="-2" y="-2" width="28" height="28">
+          <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" floodColor="#312E81" floodOpacity="0.25" />
+        </filter>
+      </defs>
+
+      {/* Camera body */}
+      <rect x="2" y="6" width="14" height="12" rx="2.5" fill="url(#video-body)" filter="url(#video-glow)" />
+
+      {/* Body shine */}
+      <rect x="3" y="7" width="6" height="4" rx="1.5" fill="white" opacity="0.18" />
+
+      {/* Lens triangle */}
+      <path d="M16 10 L22 7 V17 L16 14 V10 Z" fill="url(#video-lens)" />
+
+      {/* Recording dot */}
+      <circle cx="6" cy="15" r="1.5" fill="#FCA5A5" />
+      <circle cx="6" cy="15" r="0.7" fill="#DC2626" />
+
+      {/* Play arrow inside body */}
+      <path d="M9 11.5 L12 13 L9 14.5 Z" fill="white" opacity="0.7" />
+    </svg>
+  );
+}
+
+/** Modality — three connected nodes for online / teacher / student */
+export function ModalityIcon({ className, size = 24 }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="mode-a" x1="2" y1="2" x2="8" y2="8" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#93C5FD" />
+          <stop offset="100%" stopColor="#3B82F6" />
+        </linearGradient>
+        <linearGradient id="mode-b" x1="16" y1="2" x2="22" y2="8" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#A5B4FC" />
+          <stop offset="100%" stopColor="#6366F1" />
+        </linearGradient>
+        <linearGradient id="mode-c" x1="9" y1="16" x2="15" y2="22" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#67E8F9" />
+          <stop offset="100%" stopColor="#0891B2" />
+        </linearGradient>
+      </defs>
+
+      {/* Connecting lines (drawn first, behind nodes) */}
+      <path
+        d="M5 5 L19 5 M5 5 L12 19 M19 5 L12 19"
+        stroke="#CBD5E1"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeDasharray="2 2"
+        opacity="0.7"
+      />
+
+      {/* Three mode circles */}
+      <circle cx="5" cy="5" r="3.5" fill="url(#mode-a)" />
+      <circle cx="19" cy="5" r="3.5" fill="url(#mode-b)" />
+      <circle cx="12" cy="19" r="3.5" fill="url(#mode-c)" />
+
+      {/* Tiny inner highlights */}
+      <circle cx="4" cy="4" r="1" fill="white" opacity="0.4" />
+      <circle cx="18" cy="4" r="1" fill="white" opacity="0.4" />
+      <circle cx="11" cy="18" r="1" fill="white" opacity="0.4" />
+    </svg>
+  );
+}
+
+/** Dashboard — bar chart with growth arrow */
+export function DashboardIcon({ className, size = 24 }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="dash-bar1" x1="4" y1="14" x2="7" y2="20" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#67E8F9" />
+          <stop offset="100%" stopColor="#0891B2" />
+        </linearGradient>
+        <linearGradient id="dash-bar2" x1="9" y1="10" x2="13" y2="20" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#22D3EE" />
+          <stop offset="100%" stopColor="#0E7490" />
+        </linearGradient>
+        <linearGradient id="dash-bar3" x1="14" y1="6" x2="19" y2="20" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#06B6D4" />
+          <stop offset="100%" stopColor="#155E75" />
+        </linearGradient>
+        <filter id="dash-shadow" x="-2" y="-2" width="28" height="28">
+          <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" floodColor="#164E63" floodOpacity="0.25" />
+        </filter>
+      </defs>
+
+      {/* Baseline */}
+      <line x1="3" y1="20.5" x2="21" y2="20.5" stroke="#94A3B8" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
+
+      {/* Three bars (ascending) */}
+      <rect x="4" y="14" width="3.5" height="6.5" rx="1" fill="url(#dash-bar1)" filter="url(#dash-shadow)" />
+      <rect x="9.5" y="10" width="3.5" height="10.5" rx="1" fill="url(#dash-bar2)" filter="url(#dash-shadow)" />
+      <rect x="15" y="6" width="3.5" height="14.5" rx="1" fill="url(#dash-bar3)" filter="url(#dash-shadow)" />
+
+      {/* Trend arrow */}
+      <path
+        d="M5 12 L11 8 L15 9 L20 4"
+        stroke="#FCD34D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <path
+        d="M17 4 L20 4 L20 7"
+        stroke="#FCD34D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+/* ──────────────────────────────────────────
+   SUBJECT ICONS — for Hero brand stage (white-on-violet)
+   Each is a simple, recognizable category symbol.
+   Use currentColor for fill/stroke; pass color via className.
+   ────────────────────────────────────────── */
+
+export function SubjectBookIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
+      <path d="M5 6c2.5-1 6-1 9 0v18c-3-1-6.5-1-9 0V6z" fill="currentColor" opacity="0.95" />
+      <path d="M27 6c-2.5-1-6-1-9 0v18c3-1 6.5-1 9 0V6z" fill="currentColor" opacity="0.85" />
+      <line x1="14" y1="6" x2="14" y2="24" stroke="#5B21B6" strokeWidth="0.8" opacity="0.5" />
+      <line x1="18" y1="6" x2="18" y2="24" stroke="#5B21B6" strokeWidth="0.8" opacity="0.5" />
+    </svg>
+  );
+}
+
+export function SubjectAtomIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
+      <ellipse cx="16" cy="16" rx="13" ry="5" stroke="currentColor" strokeWidth="1.8" />
+      <ellipse cx="16" cy="16" rx="13" ry="5" stroke="currentColor" strokeWidth="1.8" transform="rotate(60 16 16)" />
+      <ellipse cx="16" cy="16" rx="13" ry="5" stroke="currentColor" strokeWidth="1.8" transform="rotate(-60 16 16)" />
+      <circle cx="16" cy="16" r="2.5" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function SubjectPaletteIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M16 4C9.4 4 4 8.9 4 14.9c0 6 5.4 10.9 12 10.9 1.7 0 2.8-1 2.8-2.5 0-1.4-1.1-1.7-1.1-2.9 0-1.2 1-2.2 2.2-2.2h2.6c4.1 0 5.5-2.7 5.5-5.7C28 8.4 22.6 4 16 4z"
+        fill="currentColor"
+        opacity="0.9"
+      />
+      <circle cx="9" cy="14" r="1.6" fill="#7C3AED" />
+      <circle cx="13" cy="9" r="1.6" fill="#DB2777" />
+      <circle cx="19" cy="9" r="1.6" fill="#F59E0B" />
+      <circle cx="23" cy="13" r="1.6" fill="#10B981" />
+    </svg>
+  );
+}
+
+export function SubjectRulerIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
+      <rect x="2" y="11" width="28" height="10" rx="1.5" fill="currentColor" opacity="0.95" transform="rotate(-25 16 16)" />
+      <g stroke="#5B21B6" strokeWidth="1" opacity="0.6" transform="rotate(-25 16 16)">
+        <line x1="6" y1="11" x2="6" y2="15" />
+        <line x1="10" y1="11" x2="10" y2="17" />
+        <line x1="14" y1="11" x2="14" y2="15" />
+        <line x1="18" y1="11" x2="18" y2="17" />
+        <line x1="22" y1="11" x2="22" y2="15" />
+        <line x1="26" y1="11" x2="26" y2="17" />
+      </g>
+    </svg>
+  );
+}
+
+export function SubjectGlobeIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
+      <circle cx="16" cy="16" r="12" fill="currentColor" opacity="0.95" />
+      <g stroke="#5B21B6" strokeWidth="1.2" fill="none" opacity="0.6">
+        <ellipse cx="16" cy="16" rx="6" ry="12" />
+        <line x1="4" y1="16" x2="28" y2="16" />
+        <path d="M5 11 Q16 13 27 11" />
+        <path d="M5 21 Q16 19 27 21" />
+      </g>
+    </svg>
+  );
+}
+
+export function SubjectLightbulbIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M16 3c-5 0-9 4-9 9 0 3.5 2 6.5 5 8v3a2 2 0 002 2h4a2 2 0 002-2v-3c3-1.5 5-4.5 5-8 0-5-4-9-9-9z"
+        fill="currentColor"
+        opacity="0.95"
+      />
+      <rect x="11" y="26" width="10" height="2" rx="1" fill="currentColor" opacity="0.7" />
+      <rect x="13" y="29" width="6" height="1.5" rx="0.75" fill="currentColor" opacity="0.5" />
+      <path d="M14 14 L14 19 M18 14 L18 19" stroke="#5B21B6" strokeWidth="1" opacity="0.4" />
+    </svg>
+  );
+}
+
+export function SubjectMusicIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 24V6l14-2v17"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <ellipse cx="9" cy="24" rx="4" ry="3" fill="currentColor" />
+      <ellipse cx="22" cy="22" rx="4" ry="3" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function SubjectCodeIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M11 9 L4 16 L11 23 M21 9 L28 16 L21 23 M18 6 L14 26"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+export function SubjectChefHatIcon({ className, size = 32 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M8 18 C5 18 3 16 3 13 C3 10 5 8 8 8 C8 5 11 3 14 3 C16 3 17 4 17.5 5 C18 4 20 3 22 3 C25 3 27 5 27 8 C29 8 30 10 30 13 C30 16 28 18 25 18 V25 C25 26 24 27 23 27 H10 C9 27 8 26 8 25 V18 Z"
+        fill="currentColor"
+        opacity="0.95"
+      />
+      <line x1="10" y1="22" x2="23" y2="22" stroke="#5B21B6" strokeWidth="0.8" opacity="0.4" />
+    </svg>
+  );
+}
+
 /* ──────────────────────────────────────────
    UTILITY / UI ICONS
    ────────────────────────────────────────── */

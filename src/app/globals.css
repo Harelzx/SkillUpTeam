@@ -21,13 +21,60 @@
   --color-brand-100: #DBEAFE;
   --color-brand-50: #EFF6FF;
 
+  --color-indigo-600: #4F46E5;
   --color-indigo-500: #6366F1;
   --color-indigo-400: #818CF8;
   --color-indigo-300: #A5B4FC;
+  --color-indigo-200: #C7D2FE;
+  --color-indigo-100: #E0E7FF;
+  --color-indigo-50: #EEF2FF;
 
+  --color-amber-600: #D97706;
   --color-amber-500: #F59E0B;
+  --color-amber-400: #FBBF24;
+  --color-amber-200: #FDE68A;
+  --color-amber-100: #FEF3C7;
+  --color-amber-50: #FFFBEB;
+
+  --color-emerald-600: #059669;
   --color-emerald-500: #10B981;
+  --color-emerald-400: #34D399;
+  --color-emerald-200: #A7F3D0;
+  --color-emerald-100: #D1FAE5;
+  --color-emerald-50: #ECFDF5;
+
   --color-red-500: #EF4444;
+
+  /* Extended palette for category icons and feature accents */
+  --color-rose-600: #E11D48;
+  --color-rose-500: #F43F5E;
+  --color-rose-200: #FECDD3;
+  --color-rose-100: #FFE4E6;
+  --color-rose-50: #FFF1F2;
+
+  --color-pink-600: #DB2777;
+  --color-pink-500: #EC4899;
+  --color-pink-300: #F9A8D4;
+  --color-pink-200: #FBCFE8;
+  --color-pink-100: #FCE7F3;
+  --color-pink-50: #FDF2F8;
+
+  --color-cyan-700: #0E7490;
+  --color-cyan-600: #0891B2;
+  --color-cyan-500: #06B6D4;
+  --color-cyan-200: #A5F3FC;
+  --color-cyan-100: #CFFAFE;
+  --color-cyan-50: #ECFEFF;
+
+  --color-violet-600: #7C3AED;
+  --color-violet-500: #8B5CF6;
+  --color-violet-200: #DDD6FE;
+  --color-violet-100: #EDE9FE;
+  --color-violet-50: #F5F3FF;
+
+  --color-slate-700: #334155;
+  --color-slate-200: #E2E8F0;
+  --color-slate-100: #F1F5F9;
 
   --font-rubik: var(--font-family-rubik);
 }

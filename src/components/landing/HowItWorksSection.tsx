@@ -1,51 +1,51 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
 import ScrollReveal from "@/components/animations/ScrollReveal";
-import PhoneMockup from "@/components/phone/PhoneMockup";
-import { STEPS } from "@/lib/constants";
+import RealAppFrame from "@/components/phone/RealAppFrame";
 
-const INTERVAL_MS = 3500;
+// Each step paired with a real app screen showing exactly that moment in the flow.
+const FLOW_STEPS = [
+  {
+    number: 1,
+    title: "חפשו מורה",
+    description:
+      "פתחו את האפליקציה, בחרו תחום, מסננים לפי אזור ומחיר. רואים מורים זמינים בקליק.",
+    src: "/images/app-screens/student_homepage.jpeg",
+    alt: "מסך הבית: חיפוש מורה לפי תחום ואזור",
+    accent: "from-brand-500/20 to-transparent",
+  },
+  {
+    number: 2,
+    title: "בחרו את המתאים",
+    description:
+      "פרופיל מלא של המורה: ניסיון, ביקורות, מקצועות, מחיר. הכל גלוי, בלי הפתעות.",
+    src: "/images/app-screens/teacher_personalpage.jpeg",
+    alt: "פרופיל מלא של מורה עם ביקורות",
+    accent: "from-amber-500/20 to-transparent",
+  },
+  {
+    number: 3,
+    title: "קבעו שיעור",
+    description:
+      "אשף בן 2 שלבים: בוחרים מקצוע, צורת שיעור (אונליין / אצל המורה / אצלכם), זמן ורמה.",
+    src: "/images/app-screens/order_firstpage.jpeg",
+    alt: "אשף הזמנת שיעור",
+    accent: "from-indigo-500/20 to-transparent",
+  },
+  {
+    number: 4,
+    title: "התחילו ללמוד!",
+    description:
+      "אישור מיידי, קישור Zoom אם זה אונליין, תזכורת לפני השיעור. אתם פנויים ללמוד.",
+    src: "/images/app-screens/order_confirmation.jpeg",
+    alt: "השיעור הוזמן בהצלחה",
+    accent: "from-emerald-500/20 to-transparent",
+  },
+] as const;
 
 export default function HowItWorksSection() {
-  const [currentStep, setCurrentStep] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const pausedRef = useRef(false);
-
-  const startInterval = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    if (pausedRef.current) return;
-    intervalRef.current = setInterval(() => {
-      setCurrentStep((prev) => (prev + 1) % STEPS.length);
-    }, INTERVAL_MS);
-  }, []);
-
-  const pauseInterval = useCallback(() => {
-    pausedRef.current = true;
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  }, []);
-
-  const resumeInterval = useCallback(() => {
-    pausedRef.current = false;
-    startInterval();
-  }, [startInterval]);
-
-  useEffect(() => {
-    startInterval();
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [startInterval]);
-
-  const handleStepClick = (index: number) => {
-    setCurrentStep(index);
-    pausedRef.current = false;
-    startInterval();
-  };
-
   return (
-    <div className="w-full px-6 py-16 md:py-0 md:px-16">
+    <div className="w-full px-6 py-16 md:py-24 md:px-16">
       <ScrollReveal>
         <h2 className="text-center text-4xl font-extrabold tracking-tight text-dark-900">
           איך זה עובד?
@@ -53,90 +53,43 @@ export default function HowItWorksSection() {
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <p className="mt-3 mb-16 text-center text-dark-500">
-          ארבעה צעדים פשוטים ואתם בדרך להצלחה
+          ארבעה צעדים פשוטים. שיעור פרטי בידיים תוך דקות.
         </p>
       </ScrollReveal>
 
-      <div
-        className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-16 md:flex-row"
-        onMouseEnter={pauseInterval}
-        onMouseLeave={resumeInterval}
-      >
-        {/* Steps list */}
-        <div className="flex w-full flex-col gap-3 md:min-w-80 md:w-auto">
-          {STEPS.map((step, i) => {
-            const isActive = currentStep === i;
-            return (
-              <motion.div
-                key={i}
-                className={`flex cursor-pointer items-start gap-3.5 rounded-xl p-4 transition-all ${
-                  isActive
-                    ? "border border-dark-200 bg-white shadow-md"
-                    : "border border-transparent bg-transparent"
-                }`}
-                onClick={() => handleStepClick(i)}
-                layout
-              >
-                {/* Step number */}
-                <div
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-sm font-extrabold transition-all ${
-                    isActive
-                      ? "bg-brand-500 text-white shadow-md"
-                      : "bg-dark-200 text-dark-400"
-                  }`}
-                >
-                  {step.number}
-                </div>
-
-                {/* Step content */}
-                <div className="flex-1">
-                  <h3 className="text-base font-bold text-dark-900">
-                    {step.title}
-                  </h3>
-                  <AnimatePresence initial={false}>
-                    {isActive && (
-                      <motion.p
-                        key={`desc-${i}`}
-                        className="overflow-hidden text-sm leading-relaxed text-dark-500"
-                        initial={{ maxHeight: 0, opacity: 0, marginTop: 0 }}
-                        animate={{
-                          maxHeight: 120,
-                          opacity: 1,
-                          marginTop: 4,
-                        }}
-                        exit={{ maxHeight: 0, opacity: 0, marginTop: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                      >
-                        {step.description}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Phone mockup */}
-        <div className="flex flex-col items-center">
-          <PhoneMockup activeScreen={currentStep} animate={false} />
-
-          {/* Step dots */}
-          <div className="mt-4 flex justify-center gap-1.5">
-            {STEPS.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => handleStepClick(i)}
-                aria-label={`צעד ${i + 1}`}
-                className={`rounded-full transition-all duration-300 ${
-                  currentStep === i
-                    ? "h-2 w-6 rounded bg-brand-500"
-                    : "h-2 w-2 bg-dark-300"
-                }`}
+      {/* 4-phone storyboard. RTL flow — step 1 sits on the right. */}
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4 lg:gap-6">
+        {FLOW_STEPS.map((step, i) => (
+          <ScrollReveal key={step.number} delay={0.15 + i * 0.1}>
+            <div className="relative flex flex-col items-center text-center">
+              {/* Soft accent halo behind the phone */}
+              <div
+                aria-hidden="true"
+                className={`pointer-events-none absolute inset-x-0 top-4 -z-10 mx-auto h-72 w-56 rounded-full bg-gradient-to-b ${step.accent} blur-2xl`}
               />
-            ))}
-          </div>
-        </div>
+
+              {/* Phone with floating step badge */}
+              <div className="relative">
+                <RealAppFrame
+                  src={step.src}
+                  alt={step.alt}
+                  width={250}
+                />
+                <span className="absolute -top-3 -right-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-brand-600 text-base font-extrabold text-white shadow-lg ring-4 ring-white">
+                  {step.number}
+                </span>
+              </div>
+
+              {/* Caption */}
+              <h3 className="mt-6 text-lg font-extrabold text-dark-900">
+                {step.title}
+              </h3>
+              <p className="mt-2 max-w-[260px] text-sm leading-relaxed text-dark-500">
+                {step.description}
+              </p>
+            </div>
+          </ScrollReveal>
+        ))}
       </div>
     </div>
   );

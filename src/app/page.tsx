@@ -1,60 +1,69 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/landing/HeroSection";
+import QuickAnswerSection from "@/components/landing/QuickAnswerSection";
+import TrustBarSection from "@/components/landing/TrustBarSection";
 import PainPointsSection from "@/components/landing/PainPointsSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
+import SubjectsSection from "@/components/landing/SubjectsSection";
+import TestimonialsSection from "@/components/landing/TestimonialsSection";
+import ForTutorsSection from "@/components/landing/ForTutorsSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import StatsSection from "@/components/landing/StatsSection";
+import FAQSection from "@/components/landing/FAQSection";
 import CTASection from "@/components/landing/CTASection";
-import {
-  FullPageProvider,
-  FullPageContainer,
-  FullPageSection,
-} from "@/components/fullpage/FullPageScroll";
-
-const SECTION_IDS = [
-  "hero",
-  "why-skillup",
-  "how-it-works",
-  "features",
-  "stats",
-  "download",
-];
 
 export default function LandingPage() {
   return (
-    <FullPageProvider sectionIds={SECTION_IDS}>
+    <>
       <Navbar />
-      <FullPageContainer>
-        <FullPageSection id="hero" className="bg-dark-950">
+      <main>
+        <section id="hero" className="relative min-h-svh w-full bg-dark-950">
           <HeroSection />
-        </FullPageSection>
+        </section>
 
-        <FullPageSection id="why-skillup" className="bg-white">
-          <PainPointsSection />
-        </FullPageSection>
+        <QuickAnswerSection />
 
-        <FullPageSection id="how-it-works" className="bg-gradient-to-b from-dark-50 to-brand-50">
-          <HowItWorksSection />
-        </FullPageSection>
+        <TrustBarSection />
 
-        <FullPageSection id="features" className="bg-dark-950">
-          <FeaturesSection />
-        </FullPageSection>
-
-        <FullPageSection id="stats" className="bg-gradient-to-br from-dark-800 to-dark-900">
-          <StatsSection />
-        </FullPageSection>
-
-        <FullPageSection
-          id="download"
-          innerClassName="flex h-full w-full flex-col"
-          mobileInnerClassName="flex w-full flex-col"
+        <section
+          id="why-skillup"
+          className="w-full bg-white"
         >
+          <PainPointsSection />
+        </section>
+
+        <section
+          id="how-it-works"
+          className="w-full bg-gradient-to-b from-dark-50 to-brand-50"
+        >
+          <HowItWorksSection />
+        </section>
+
+        <SubjectsSection />
+
+        <TestimonialsSection />
+
+        <ForTutorsSection />
+
+        <section id="features" className="w-full bg-dark-950">
+          <FeaturesSection />
+        </section>
+
+        <section
+          id="stats"
+          className="w-full bg-gradient-to-br from-dark-800 to-dark-900"
+        >
+          <StatsSection />
+        </section>
+
+        <FAQSection />
+
+        <section id="download" className="w-full">
           <CTASection />
-          <Footer />
-        </FullPageSection>
-      </FullPageContainer>
-    </FullPageProvider>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }

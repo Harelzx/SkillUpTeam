@@ -11,9 +11,9 @@ export default function Footer() {
           {/* Logo */}
           <a href="/" className="rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
             <img
-              src="/images/logo.png"
+              src="/images/SkillUp-SignIn-Logo-dark.svg"
               alt={SITE_NAME}
-              className="h-9 w-auto brightness-0 invert"
+              className="h-10 w-auto"
             />
           </a>
 
