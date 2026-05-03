@@ -2,7 +2,7 @@ export const SITE_NAME = "SkillUp";
 export const SITE_URL = "https://skillupwebsite.vercel.app";
 export const CONTACT_EMAIL = "skillup.team.il@gmail.com";
 
-export const APP_STORE_URL = "#"; // TODO: Replace with real App Store URL
+export const APP_STORE_URL = "https://apps.apple.com/il/app/skillup/id6762197788";
 export const PLAY_STORE_URL = "#"; // TODO: Replace with real Play Store URL
 
 export const NAV_LINKS = [

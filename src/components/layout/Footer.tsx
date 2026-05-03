@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { SITE_NAME, CONTACT_EMAIL } from "@/lib/constants";
-import StoreButtons from "@/components/ui/StoreButtons";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,9 +18,6 @@ export default function Footer() {
               className="h-16 w-auto opacity-90 md:h-20"
             />
           </Link>
-
-          {/* Store buttons */}
-          <StoreButtons />
 
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-dark-500">
