@@ -1,5 +1,4 @@
-import AppLinkShell from "@/components/layout/AppLinkShell";
-import UAAwareStoreCTAs from "@/components/ui/UAAwareStoreCTAs";
+import TeacherDeepLinkContent from "@/components/layout/TeacherDeepLinkContent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,26 +7,14 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// Universal-Link target for teacher share flow. When the iOS app is installed,
-// iOS intercepts /teacher/<uuid> via AASA and opens the app directly — this
-// page never renders. When the app is NOT installed, the page falls through
-// here as a lightweight "open or install" prompt. We deliberately do NOT do a
-// Supabase lookup for the teacher: any latency competes with the AASA intercept
-// race and risks rendering before iOS hijacks the navigation.
+// Universal-Link target for the prod-app teacher share flow. When the app is
+// installed, iOS intercepts via AASA and never renders this page. No Supabase
+// lookup — any latency would race against the AASA intercept.
 export default async function TeacherDeepLinkPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   await params;
-  return (
-    <AppLinkShell
-      title="פותחים את SkillUp..."
-      subtitle="פרופיל המורה ייפתח באפליקציה. אם האפליקציה לא מותקנת, הורידו אותה כאן:"
-    >
-      <div style={{ marginTop: 8, display: "flex", justifyContent: "center" }}>
-        <UAAwareStoreCTAs />
-      </div>
-    </AppLinkShell>
-  );
+  return <TeacherDeepLinkContent />;
 }

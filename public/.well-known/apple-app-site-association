@@ -21,7 +21,7 @@
         "paths": [
           "/lesson/*",
           "/chat/*",
-          "/teacher/*",
+          "/dev/teacher/*",
           "/verify-email",
           "/verify-email?*",
           "/settings/notifications",
