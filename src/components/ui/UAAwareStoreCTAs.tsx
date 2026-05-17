@@ -112,22 +112,21 @@ export default function UAAwareStoreCTAs({
     setMounted(true);
   }, []);
 
-  // Pre-mount: render the both-buttons variant so SSR markup matches first paint.
-  // Post-mount: tailor by detected platform.
+  // Pre-mount + iOS + desktop: show App Store. Android users see Play Store
+  // (active when available, "coming soon" badge otherwise) — sending an
+  // Android user to the iOS App Store is worse than acknowledging that the
+  // Android app is on its way, because they physically can't install the
+  // iOS app on their phone.
   const showAppStore =
-    !mounted || platform === "ios" || platform === "other" || !PLAY_STORE_AVAILABLE;
+    !mounted || platform === "ios" || platform === "other";
   const showPlayStoreActive =
     PLAY_STORE_AVAILABLE && mounted && (platform === "android" || platform === "other");
   const showPlayStoreComingSoon =
-    !PLAY_STORE_AVAILABLE && (!mounted || platform === "other");
-
-  // When Android user + Play Store not available, fall back to App Store only.
-  const androidFallbackToAppStore =
-    mounted && platform === "android" && !PLAY_STORE_AVAILABLE;
+    !PLAY_STORE_AVAILABLE && mounted && (platform === "android" || platform === "other");
 
   return (
     <div className={`flex flex-row flex-wrap justify-center gap-4 ${className}`}>
-      {(showAppStore || androidFallbackToAppStore) && <AppStoreButton />}
+      {showAppStore && <AppStoreButton />}
       {showPlayStoreActive && <PlayStoreButton />}
       {showPlayStoreComingSoon && <PlayStoreComingSoon />}
     </div>
