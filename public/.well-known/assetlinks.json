@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.skillupapp.android",
+      "sha256_cert_fingerprints": [
+        "FE:DA:57:D8:DB:F9:AD:4C:51:FD:BD:B4:0D:D5:B3:8B:24:AC:01:20:8C:E6:B3:15:1F:C8:CA:36:C7:56:CF:C0"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.skillupapp.android.dev",
+      "sha256_cert_fingerprints": [
+        "FC:A1:13:AE:BB:32:A3:CC:E2:28:FC:55:42:B7:ED:D8:88:AC:11:BA:D5:63:DE:49:EA:B3:4A:83:5A:E5:D5:95"
+      ]
+    }
+  }
+]
