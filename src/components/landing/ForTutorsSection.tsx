@@ -3,6 +3,20 @@
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Button from "@/components/ui/Button";
 import RealAppFrame from "@/components/phone/RealAppFrame";
+import {
+  DashboardIcon,
+  BoltIcon,
+  ChatBubbleIcon,
+  SparkleIcon,
+} from "@/components/icons/CustomIcons";
+import { TUTOR_HOOKS } from "@/lib/constants";
+
+const HOOK_ICONS = {
+  dashboard: DashboardIcon,
+  bolt: BoltIcon,
+  chat: ChatBubbleIcon,
+  sparkle: SparkleIcon,
+} as const;
 
 // Three real tutor-side app screens, tilted magazine-style.
 const TUTOR_SCREENS = [
@@ -66,23 +80,53 @@ export default function ForTutorsSection() {
                 className="display display-lg mt-6"
                 style={{ color: "var(--panel-fg)" }}
               >
-                אתם צומחים,
+                התלמידים פונים.
                 <br />
-                <em className="not-italic grad-text">
-                  ואנחנו צומחים יחד איתכם.
-                </em>
+                <em className="not-italic grad-text">אתם מלמדים.</em>
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
               <p className="panel-muted mt-6 max-w-[44ch] text-base leading-[1.7]">
-                SkillUp מחבר אתכם ישירות לתלמידים באזור שלכם. אתם קובעים את
-                המחיר, את הזמינות, ואת המקצועות. בלי טלפונים ל-20 הורים, בלי
-                מתווכים, בלי ניירת. הרשמה לוקחת 5 דקות.
+                האפליקציה הולכת איתכם לכל מקום, והעבודה מגיעה אליכם: תלמידים
+                מוצאים את הפרופיל שלכם, שולחים פנייה — ואתם מקבלים התראה
+                לטלפון באותו רגע. אתם קובעים את הזמינות ואת המקצועות, והקשר
+                ישיר, בלי מתווכים. הרשמה לוקחת 5 דקות.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
+              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {TUTOR_HOOKS.map((hook) => {
+                  const Icon = HOOK_ICONS[hook.icon];
+                  return (
+                    <div
+                      key={hook.title}
+                      className="rounded-[16px] p-4"
+                      style={{
+                        background: "var(--panel-surface)",
+                        border: "1px solid var(--panel-rule-soft)",
+                      }}
+                    >
+                      <span className="grid h-9 w-9 place-items-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                        <Icon size={18} />
+                      </span>
+                      <div
+                        className="mt-3 text-sm font-bold"
+                        style={{ color: "var(--panel-fg)" }}
+                      >
+                        {hook.title}
+                      </div>
+                      <p className="panel-sub-muted mt-1 text-[13px] leading-relaxed">
+                        {hook.description}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.4}>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Button variant="primary" arrow href="#download">
                   הצטרפו כמורים
@@ -98,19 +142,46 @@ export default function ForTutorsSection() {
             </ScrollReveal>
           </div>
 
-          {/* Visual side — 3 tilted phones */}
+          {/* Visual side — 3 tilted phones + mock push notification */}
           <ScrollReveal delay={0.2}>
-            <div className="flex items-center justify-center gap-4">
-              {TUTOR_SCREENS.map((s) => (
-                <div
-                  key={s.src}
-                  style={{
-                    transform: `rotate(${s.rotate}deg) translateY(${s.yOffset}px)`,
-                  }}
-                >
-                  <RealAppFrame src={s.src} alt={s.alt} width={s.width} />
+            <div className="relative">
+              <div className="flex items-center justify-center gap-4">
+                {TUTOR_SCREENS.map((s) => (
+                  <div
+                    key={s.src}
+                    style={{
+                      transform: `rotate(${s.rotate}deg) translateY(${s.yOffset}px)`,
+                    }}
+                  >
+                    <RealAppFrame src={s.src} alt={s.alt} width={s.width} />
+                  </div>
+                ))}
+              </div>
+
+              {/* Floating mock push notification */}
+              <div
+                className="pointer-events-none absolute -top-6 right-1/2 z-10 flex w-[270px] translate-x-1/2 items-start gap-3 rounded-[18px] border border-[var(--rule)] bg-white/95 px-4 py-3 shadow-[0_20px_44px_-16px_rgba(79,70,229,0.35)] backdrop-blur animate-float-y md:right-[8%] md:translate-x-0"
+                aria-hidden="true"
+              >
+                <img
+                  src="/images/logo.png"
+                  alt=""
+                  className="mt-0.5 h-8 w-8 shrink-0 rounded-[9px]"
+                />
+                <div className="min-w-0">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="text-[12px] font-bold text-[var(--fg)]">
+                      SkillUp
+                    </span>
+                    <span className="text-[10px] text-[var(--fg-faint)]">
+                      עכשיו
+                    </span>
+                  </div>
+                  <p className="mt-0.5 text-[12px] leading-snug text-[var(--fg-muted)]">
+                    תלמיד חדש מתעניין בשיעור מתמטיקה באזור שלך
+                  </p>
                 </div>
-              ))}
+              </div>
             </div>
           </ScrollReveal>
         </div>

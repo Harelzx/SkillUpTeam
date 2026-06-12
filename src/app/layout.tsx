@@ -27,10 +27,12 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: "SkillUp",
+  category: "education",
   title:
     "SkillUp | האפליקציה הישראלית לשיעורים פרטיים. 9 תחומים, כל הארץ, בעברית",
   description:
-    "SkillUp. האפליקציה הישראלית למציאת מורה פרטי ב-9 תחומים: מתמטיקה ומדעים, שפות, בגרויות ופסיכומטרי, ספורט, אומנות, תכנות, ופנאי ומיומנויות חיים (בישול, נהיגה, מוזיקה). שלוש דרכי לימוד: אונליין, אצל המורה, או אצלכם. עברית מלאה, RTL, מורים מאומתים, ללא עמלת תיווך לעולם. חינם בתקופת הבטא.",
+    "SkillUp. האפליקציה הישראלית למציאת מורה פרטי ב-9 תחומים: מתמטיקה ומדעים, שפות, בגרויות ופסיכומטרי, ספורט, אומנות, תכנות, ופנאי ומיומנויות חיים (בישול, נהיגה, מוזיקה). שלוש דרכי לימוד: אונליין, אצל המורה, או אצלכם. מורים מאומתים, זמינות אמיתית, קשר ישיר בלי מתווכים. עברית מלאה, RTL.",
   keywords: [
     // Core
     "מורה פרטי",
@@ -79,11 +81,17 @@ export const metadata: Metadata = {
     "מורה פרטי באשדוד",
     "מורה פרטי ברעננה",
     "מורה פרטי אונליין בעברית",
-    // Pricing/value
-    "0% עמלה תמיד",
-    "מורה פרטי ללא עמלות",
-    "חינם בבטא",
-    "אפליקציית שיעורים פרטיים חינם",
+    // English (GEO: English searches + AI assistants)
+    "private tutor Israel",
+    "private tutors in Israel",
+    "tutoring app Israel",
+    "find a tutor in Israel",
+    "math tutor Israel",
+    "English tutor Israel",
+    "Hebrew tutor",
+    "bagrut tutor",
+    "psychometric prep Israel",
+    "private lessons Israel",
   ],
   alternates: {
     canonical: "/",
@@ -97,28 +105,24 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
     },
   },
+  // og:image / twitter:image are generated at build time by src/app/opengraph-image.tsx
   openGraph: {
     title: "SkillUp. האפליקציה הישראלית לשיעורים פרטיים",
     description:
-      "9 תחומים, 3 דרכי לימוד, כל הארץ, בעברית. ללא עמלת תיווך. אתם משלמים ישירות למורה.",
+      "9 תחומים, 3 דרכי לימוד, כל הארץ, בעברית. מורים מאומתים, קשר ישיר בלי מתווכים.",
     url: "/",
     type: "website",
     locale: "he_IL",
     siteName: "SkillUp",
-    images: [
-      {
-        url: "/images/og-cover.png",
-        width: 1200,
-        height: 630,
-        alt: "SkillUp. האפליקציה הישראלית לשיעורים פרטיים",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "SkillUp. האפליקציה הישראלית לשיעורים פרטיים",
-    description: "9 תחומים, 3 דרכי לימוד, כל הארץ, בעברית. ללא עמלת תיווך.",
-    images: ["/images/og-cover.png"],
+    description:
+      "9 תחומים, 3 דרכי לימוד, כל הארץ, בעברית. מורים מאומתים, קשר ישיר בלי מתווכים.",
+  },
+  itunes: {
+    appId: "6762197788",
   },
   // GEO targeting: Israel nationwide. ICBM is the approximate country centroid.
   other: {

@@ -57,14 +57,14 @@ export default function HowItWorksSection() {
               <h2 className="display display-lg mt-6 max-w-[14ch]">
                 ארבעה צעדים.
                 <br />
-                <em className="not-italic grad-text">שיעור תוך דקות.</em>
+                <em className="not-italic grad-text">שיעור פרטי תוך דקות.</em>
               </h2>
             </ScrollReveal>
           </div>
           <ScrollReveal delay={0.2}>
             <p className="max-w-[38ch] text-[15px] leading-[1.7] text-[var(--fg-muted)]">
-              פתיחת האפליקציה, בחירת מורה, הזמנת שיעור, התחלת למידה. הכל מסך
-              אחד, אחד מהטלפון.
+              פותחים את האפליקציה, בוחרים מורה, מזמינים שיעור ומתחילים ללמוד.
+              הכול מהטלפון, במסך אחד.
             </p>
           </ScrollReveal>
         </div>

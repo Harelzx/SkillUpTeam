@@ -1,4 +1,10 @@
-import { SITE_NAME, SITE_URL, CONTACT_EMAIL, CATEGORIES } from "./constants";
+import {
+  SITE_NAME,
+  SITE_URL,
+  CONTACT_EMAIL,
+  CATEGORIES,
+  APP_STORE_URL,
+} from "./constants";
 
 export const FAQ_ITEMS = [
   {
@@ -8,10 +14,6 @@ export const FAQ_ITEMS = [
   {
     q: "איך מוצאים מורה פרטי באפליקציה?",
     a: "פותחים את SkillUp, בוחרים תחום ומקצוע, מסננים לפי אזור, מחיר וזמינות, רואים פרופילים מלאים של מורים מאומתים, וקובעים שיעור באשף בן 2 שלבים.",
-  },
-  {
-    q: "כמה עולה שיעור פרטי בישראל ב-2026?",
-    a: "בממוצע ₪80–₪250 לשעה, תלוי במקצוע, ברמת המורה ובשאלה אם השיעור אונליין, אצל המורה או אצלכם בבית. המחירים נקבעים על ידי המורים עצמם, ללא תוספת מצדנו.",
   },
   {
     q: "האם המורים ב-SkillUp מאומתים?",
@@ -39,31 +41,23 @@ export const FAQ_ITEMS = [
   },
   {
     q: "מה מדיניות הביטולים?",
-    a: "ביטול חינם עד 24 שעות לפני השיעור. אחרי, לפי מדיניות המורה.",
+    a: "ביטול גמיש עד 24 שעות לפני השיעור. אחרי, לפי מדיניות המורה.",
   },
   {
-    q: "מי משלם למי? יש עמלת תיווך?",
-    a: "התלמיד משלם ישירות למורה, באמצעי התשלום שאתם מסכמים ביניכם. SkillUp לא לוקחת עמלת תיווך, לא מתווכת בתשלום ולא מרוויחה מהמחיר של השיעור. ההתחייבות הזו לא תשתנה גם כשמסלולי המנוי ייצאו לדרך. המורה תמיד מקבל 100% מהמחיר.",
+    q: "איך מורים מקבלים תלמידים חדשים ב-SkillUp?",
+    a: "הפרופיל שלכם מופיע בחיפוש לפי תחום, אזור וזמינות, כך שתלמידים שמחפשים בדיוק את מה שאתם מלמדים מוצאים אתכם. ברגע שתלמיד שולח הודעה או מזמין שיעור, מגיעה התראת פוש לטלפון. ביקורות מתלמידים מצטברות על הפרופיל ועובדות בשבילכם, והחיבור ביניכם לבין התלמיד ישיר, בלי מתווכים.",
   },
   {
-    q: "מה יקרה אחרי הבטא? איך המודל העסקי שלכם עובד?",
-    a: "מודל מנויים ממוקד צמיחה. תלמידים נשארים חינם לכל החיים. למורים: עד 4 תלמידים פעילים בחינם, להכיר את הפלטפורמה ולראות שזה עובד. כשתרצו לצמוח אל מעבר לזה ולקבל לידים חמים מתלמידים חדשים, הודעות נכנסות מתלמידים שלא מכירים אתכם, עדיפות בחיפוש ותג PRO זהב, תשדרגו ל-Pro. כשאתם צומחים, אנחנו צומחים יחד איתכם. ועמלת תיווך על שיעור? לא לקחנו, ולא ניקח. אף פעם.",
-  },
-  {
-    q: "מה כוללת הדרגה Pro למורים?",
-    a: "תלמידים ללא הגבלה, לידים חמים מתלמידים חדשים שמחפשים בדיוק את התחום שלכם, הודעות נכנסות מתלמידים שעוד לא הכרתם (במסלול החינם נחסם), עדיפות בתוצאות החיפוש, תג PRO זהב על הפרופיל, ודשבורד הכנסות מורחב. במסלול החינם תוכלו לעבוד עם עד 4 תלמידים שכבר הזמינו אצלכם. Pro פותח את הברז להמשך הצמיחה.",
-  },
-  {
-    q: "איך משלמים?",
-    a: "התשלום מתבצע ישירות מולכם לבין המורה, באמצעי התשלום שתסכמו ביניכם (העברה, ביט, מזומן וכו'). SkillUp לא לוקחת עמלה ולא מתווכת בתשלום. בעתיד נוסיף אפשרות תשלום מאובטח באפליקציה, ועדיין ללא עמלה על השיעור.",
+    q: "האם אפשר לנהל את כל השיעורים מהטלפון?",
+    a: "כן, זה כל הרעיון. יומן שיעורים חי, ניהול תלמידים, צ׳אט עם קבצים, התראות על פניות חדשות ותזכורות אוטומטיות לפני כל שיעור, הכול באפליקציה אחת שנמצאת אצלכם בכיס, בכל מקום.",
   },
   {
     q: "איך הופכים להיות מורה ב-SkillUp?",
-    a: "נרשמים באפליקציה כמורה ב-3 שלבים (תפקיד, פרטים אישיים, מקצועות והשכלה וסגנון הוראה), מעלים תעודות, עוברים אימות, ומתחילים לקבל פניות מתלמידים. השימוש חינם בתקופת הבטא, ועמלות תיווך לא ניקח אף פעם. למורים מייסדים: פרופיל מועדף בחיפוש בחודשי ההשקה.",
+    a: "נרשמים באפליקציה כמורה ב-3 שלבים (תפקיד, פרטים אישיים, מקצועות והשכלה וסגנון הוראה), מעלים תעודות, עוברים אימות, ומתחילים לקבל פניות מתלמידים. למורים מייסדים: פרופיל מועדף בחיפוש בחודשי ההשקה.",
   },
   {
-    q: "האם האפליקציה חינמית?",
-    a: "לתלמידים: כן, חינם לכל החיים. הורדה, חיפוש, צ׳אט, הזמנות וכל הפיצ'רים, ללא דמי רישום וללא דמי מנוי. למורים: חינם בתקופת הבטא, ולאחר מכן חינם עד 4 תלמידים פעילים. מעבר ל-4 תלמידים נדרש מסלול Pro שפותח לידים חמים, עדיפות בחיפוש, ותלמידים ללא הגבלה. עמלת תיווך על שיעור: לא לקחנו, ולא ניקח. אף פעם.",
+    q: "Is SkillUp available for English speakers in Israel?",
+    a: "SkillUp is an Israeli app for finding verified private tutors across Israel (Hebrew interface). Many tutors on the platform teach English and other subjects in English, including online lessons. האפליקציה בעברית מלאה, וכוללת מורים שמלמדים באנגלית, פרונטלית או אונליין, בכל הארץ.",
   },
   {
     q: "האם האפליקציה מאובטחת?",
@@ -82,14 +76,15 @@ const mobileApplication = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   name: SITE_NAME,
+  alternateName: "SkillUp - Private Tutors in Israel",
   operatingSystem: "iOS",
   applicationCategory: "EducationApplication",
   url: SITE_URL,
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "ILS",
-  },
+  installUrl: APP_STORE_URL,
+  inLanguage: "he",
+  description:
+    "אפליקציה ישראלית למציאת מורים פרטיים מאומתים ולקביעת שיעורים פרטיים — אונליין, אצל המורה או אצלכם. The Israeli app for finding verified private tutors and booking private lessons across Israel.",
+  sameAs: [APP_STORE_URL],
 };
 
 // TODO: add IG/TikTok/LinkedIn URLs to sameAs when social accounts go live.
@@ -97,6 +92,10 @@ const organization = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: SITE_NAME,
+  alternateName: ["SkillUp Israel", "SkillUp - Private Tutors in Israel"],
+  description:
+    "SkillUp מפתחת את האפליקציה הישראלית לחיבור ישיר בין תלמידים למורים פרטיים מאומתים. SkillUp builds the Israeli app that connects students directly with verified private tutors across Israel.",
+  slogan: "המורה הפרטי הנכון לכם נמצא כאן",
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo.png`,
   address: {
@@ -129,16 +128,11 @@ const website = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: SITE_NAME,
+  alternateName: "SkillUp - Private Tutors in Israel",
+  description:
+    "האתר הרשמי של SkillUp, האפליקציה הישראלית למציאת מורים פרטיים ושיעורים פרטיים בכל הארץ.",
   url: SITE_URL,
   inLanguage: "he-IL",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 // Service schema — better fit than LocalBusiness (no physical storefront).
@@ -149,6 +143,9 @@ const service = {
   "@type": "Service",
   serviceType: "Private Tutoring",
   name: `${SITE_NAME}: שיעורים פרטיים`,
+  alternateName: "Private tutoring in Israel - SkillUp",
+  description:
+    "שיעורים פרטיים בכל הארץ עם מורים מאומתים, ב-9 תחומי לימוד ובשלוש דרכי לימוד: אונליין, אצל המורה או אצל התלמיד. Private tutoring across Israel with verified tutors, online or in person.",
   url: SITE_URL,
   provider: {
     "@type": "Organization",

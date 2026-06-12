@@ -13,7 +13,7 @@ function TrustTrack({ ariaHidden = false }: { ariaHidden?: boolean }) {
           className="inline-flex items-center gap-2.5 whitespace-nowrap text-sm font-semibold text-[var(--fg-muted)]"
         >
           <span
-            className="inline-block h-[7px] w-[7px] rounded-full bg-[var(--color-accent-500)] shadow-[0_0_0_3px_rgba(255,112,51,0.3)]"
+            className="inline-block h-[7px] w-[7px] rounded-full bg-[var(--color-accent-500)] shadow-[0_0_0_3px_rgba(249,115,22,0.3)]"
             aria-hidden="true"
           />
           {badge}

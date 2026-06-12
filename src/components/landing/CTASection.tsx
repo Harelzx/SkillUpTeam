@@ -49,8 +49,8 @@ export default function CTASection() {
 
             <ScrollReveal delay={0.2}>
               <p className="panel-muted mx-auto mt-6 max-w-[44ch] text-xl">
-                חינם להתחיל, ללא עמלות תיווך לעולם. אתם מוצאים את המורה, ואנחנו
-                רק מחברים.
+                המורה הבא שלכם כבר באפליקציה. מורידים, בוחרים, וקובעים שיעור
+                עוד היום.
               </p>
             </ScrollReveal>
 
@@ -73,7 +73,7 @@ export default function CTASection() {
                   className="inline-block h-[7px] w-[7px] rounded-full"
                   style={{
                     background: "var(--color-accent-500)",
-                    boxShadow: "0 0 0 3px rgba(255,112,51,0.3)",
+                    boxShadow: "0 0 0 3px rgba(249,115,22,0.3)",
                   }}
                 />
                 בהשקה! מורים מייסדים מקבלים פרופיל מועדף בחודשי הפתיחה.
@@ -86,11 +86,11 @@ export default function CTASection() {
               >
                 <span className="inline-flex items-center gap-2">
                   <TrustCheckIcon className="h-4 w-4" />
-                  ביטול חינם בהתאם למדיניות הביטולים שלנו
+                  ביטול גמיש לפי מדיניות הביטולים
                 </span>
                 <span className="inline-flex items-center gap-2">
                   <TrustCheckIcon className="h-4 w-4" />
-                  0% עמלה
+                  קשר ישיר, בלי מתווכים
                 </span>
                 <span className="inline-flex items-center gap-2">
                   <ShieldVerifiedIcon className="h-4 w-4" />

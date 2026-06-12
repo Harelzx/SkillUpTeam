@@ -102,7 +102,7 @@ export default function Navbar() {
         />
       </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-16">
-        {/* Logo + beta pill */}
+        {/* Logo */}
         <div className="flex items-center gap-2.5">
           <a
             href={isHomepage ? "#hero" : "/"}
@@ -112,16 +112,9 @@ export default function Navbar() {
             <img
               src="/images/SkillUpLoginLogo-Light.svg"
               alt="SkillUp. אפליקציית מורים פרטיים"
-              className="h-14 w-auto drop-shadow-[0_1px_2px_rgba(106,13,145,0.15)] md:h-16"
+              className="h-14 w-auto drop-shadow-[0_1px_2px_rgba(79,70,229,0.15)] md:h-16"
             />
           </a>
-          <span
-            aria-label="Beta Version"
-            className="hidden items-center rounded-full border border-accent-200 bg-accent-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent-600 sm:inline-flex"
-            dir="ltr"
-          >
-            Beta Version
-          </span>
         </div>
 
         {/* Desktop nav links */}

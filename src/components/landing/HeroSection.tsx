@@ -63,9 +63,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
-            9 תחומים, 3 דרכי לימוד, אלפי שילובים. אתם בוחרים את המורה, את השעה
-            ואת המקום, ואנחנו דואגים שהכל יעבוד חלק - בלי עמלות תיווך, בלי
-            רדיפה בוואטסאפ, בעברית מלאה.
+            9 תחומים, 3 דרכי לימוד — אונליין, אצל המורה או אצלכם. בוחרים מורה
+            מאומת, רואים זמינות אמיתית וקובעים שיעור בכמה לחיצות. בלי רדיפה
+            בוואטסאפ, הכול בעברית, הכול בטלפון.
           </motion.p>
 
           <motion.div
@@ -111,12 +111,6 @@ export default function HeroSection() {
           >
             <div>
               <div className="font-display text-[32px] font-black tracking-tight text-[var(--fg)]">
-                <span className="font-mono-lc">0%</span>
-              </div>
-              <div className="mt-1 text-xs text-[var(--fg-muted)]">עמלה</div>
-            </div>
-            <div>
-              <div className="font-display text-[32px] font-black tracking-tight text-[var(--fg)]">
                 9
               </div>
               <div className="mt-1 text-xs text-[var(--fg-muted)]">
@@ -124,11 +118,19 @@ export default function HeroSection() {
               </div>
             </div>
             <div>
-              <div className="font-display text-[26px] font-black leading-tight tracking-tight text-[var(--fg)]">
-                גמיש
+              <div className="font-display text-[32px] font-black tracking-tight text-[var(--fg)]">
+                3
               </div>
               <div className="mt-1 text-xs text-[var(--fg-muted)]">
-                ביטול לפי מדיניות הביטולים
+                דרכי לימוד
+              </div>
+            </div>
+            <div>
+              <div className="font-display text-[26px] font-black leading-tight tracking-tight text-[var(--fg)]">
+                בזמן אמת
+              </div>
+              <div className="mt-1 text-xs text-[var(--fg-muted)]">
+                התראות וזמינות חיה
               </div>
             </div>
           </motion.div>
