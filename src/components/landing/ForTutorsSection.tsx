@@ -59,7 +59,7 @@ export default function ForTutorsSection() {
                   className="mono-sm panel-sub-muted"
                   dir="ltr"
                 >
-                  05 / FOR TUTORS
+                  04 / FOR TUTORS
                 </span>
                 <span
                   className="h-px w-8"
@@ -89,9 +89,9 @@ export default function ForTutorsSection() {
             <ScrollReveal delay={0.2}>
               <p className="panel-muted mt-6 max-w-[44ch] text-base leading-[1.7]">
                 האפליקציה הולכת איתכם לכל מקום, והעבודה מגיעה אליכם: תלמידים
-                מוצאים את הפרופיל שלכם, שולחים פנייה — ואתם מקבלים התראה
+                מוצאים את הפרופיל שלכם, שולחים פנייה, ואתם מקבלים התראה
                 לטלפון באותו רגע. אתם קובעים את הזמינות ואת המקצועות, והקשר
-                ישיר, בלי מתווכים. הרשמה לוקחת 5 דקות.
+                ישיר, בלי מתווכים. הרשמה לוקחת כדקה.
               </p>
             </ScrollReveal>
 

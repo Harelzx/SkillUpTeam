@@ -1,16 +1,16 @@
 # SkillUp
 
-> SkillUp is the Israeli mobile app for finding verified private tutors (מורים פרטיים) and booking private lessons (שיעורים פרטיים) anywhere in Israel. It connects students, parents, and adult learners directly with verified tutors — no middlemen. Hebrew-first, full RTL.
+> SkillUp is the Israeli mobile app for finding verified private tutors (מורים פרטיים) and booking private lessons (שיעורים פרטיים) anywhere in Israel. It connects students, parents, and adult learners directly with verified tutors, with no middlemen. Hebrew-first, full RTL.
 
 ## What SkillUp does
 
 - Find a private tutor in Israel by subject, level, area, and real-time availability.
-- 9 subject categories: Math & Science, Foreign Languages (incl. English), Hebrew Language & Literature, Exam Prep (Bagrut/בגרות, Psychometric/פסיכומטרי, SAT), Humanities & Social Studies, Sports & Fitness, Arts & Creativity, Programming & Technology, and Leisure & Life Skills (cooking, driving, etiquette).
+- 9 subject categories: Math & Science, Foreign Languages (incl. English), Hebrew Language & Literature, Exam Prep (Bagrut/בגרות, Psychometric/פסיכומטרי, SAT), Humanities & Social Studies, Sports & Fitness, Arts & Creativity, Programming & Technology, and Leisure & Life Skills (cooking, driving, personal finance).
 - 3 lesson modes: online (automatic Zoom link), at the tutor's place, or at the student's home.
 - Every tutor is verified: identity check, education credentials, and background approval before appearing in search.
 - Real student reviews and ratings on tutor profiles.
 - Built-in chat (with file attachments), live availability calendar, booking wizard, and automatic lesson reminders (push + email).
-- Direct student–tutor connection: students contact tutors directly through the app.
+- Direct student-tutor connection: students contact tutors directly through the app.
 
 ## For tutors
 
@@ -38,4 +38,4 @@
 
 ## בעברית
 
-SkillUp היא האפליקציה הישראלית למציאת מורה פרטי מאומת ולקביעת שיעורים פרטיים — אונליין, אצל המורה או אצלכם בבית. 9 תחומי לימוד, ביקורות אמיתיות מתלמידים, צ׳אט מובנה, יומן זמינות חי ותזכורות אוטומטיות. הקשר בין התלמיד למורה ישיר, בלי מתווכים. למורים: התראות בזמן אמת על פניות חדשות, חשיפה ארצית וניהול כל הקריירה מהטלפון.
+SkillUp היא האפליקציה הישראלית למציאת מורה פרטי מאומת ולקביעת שיעורים פרטיים: אונליין, אצל המורה או אצלכם בבית. 9 תחומי לימוד, ביקורות אמיתיות מתלמידים, צ׳אט מובנה, יומן זמינות חי ותזכורות אוטומטיות. הקשר בין התלמיד למורה ישיר, בלי מתווכים. למורים: התראות בזמן אמת על פניות חדשות, חשיפה ארצית וניהול כל הקריירה מהטלפון.

@@ -15,7 +15,7 @@ export default function FAQSection() {
           {/* Left — heading */}
           <div>
             <ScrollReveal>
-              <Eyebrow n="08 / FAQ">שאלות</Eyebrow>
+              <Eyebrow n="07 / FAQ">שאלות</Eyebrow>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="display display-lg mt-6">

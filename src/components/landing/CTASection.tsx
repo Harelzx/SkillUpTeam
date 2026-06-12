@@ -29,7 +29,7 @@ export default function CTASection() {
                 className="mono-sm panel-sub-muted"
                 dir="ltr"
               >
-                09 / DOWNLOAD
+                08 / DOWNLOAD
               </span>
             </ScrollReveal>
 

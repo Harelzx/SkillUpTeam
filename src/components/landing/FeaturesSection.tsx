@@ -88,7 +88,7 @@ export default function FeaturesSection() {
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div>
             <ScrollReveal>
-              <Eyebrow n="06 / FEATURES">יכולות</Eyebrow>
+              <Eyebrow n="05 / FEATURES">יכולות</Eyebrow>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="display display-lg mt-6 max-w-[16ch]">

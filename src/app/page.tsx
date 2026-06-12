@@ -6,7 +6,6 @@ import QuickAnswerSection from "@/components/landing/QuickAnswerSection";
 import PainPointsSection from "@/components/landing/PainPointsSection";
 import KineticTickerSection from "@/components/landing/KineticTickerSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
-import SubjectsSection from "@/components/landing/SubjectsSection";
 import ForTutorsSection from "@/components/landing/ForTutorsSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
@@ -36,13 +35,9 @@ export default function LandingPage() {
           <HowItWorksSection />
         </section>
 
-        <SubjectsSection />
-
         <ForTutorsSection />
 
-        <section id="features" className="w-full">
-          <FeaturesSection />
-        </section>
+        <FeaturesSection />
 
         <TestimonialsSection />
 

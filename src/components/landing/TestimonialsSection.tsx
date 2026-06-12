@@ -12,7 +12,7 @@ export default function TestimonialsSection() {
     >
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
-          <Eyebrow n="07 / FOUNDERS">קהילת הפתיחה</Eyebrow>
+          <Eyebrow n="06 / FOUNDERS">קהילת הפתיחה</Eyebrow>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <h2 className="display display-lg mt-6">
@@ -58,7 +58,7 @@ export default function TestimonialsSection() {
               className="font-mono-lc mt-6 text-sm font-semibold"
               style={{ color: "var(--color-ink-600)" }}
             >
-              — צוות SkillUp
+              צוות SkillUp
             </p>
           </div>
         </ScrollReveal>
